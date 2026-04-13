@@ -59,14 +59,38 @@ GITHUB_REPOS = [
 
 HF_MODEL_LIMIT = 20
 
+# SEC EDGAR -- AI-Cake companies by CIK number
+# Only track material filings: 10-K (annual), 10-Q (quarterly), 8-K (events)
+EDGAR_COMPANIES = [
+    {"name": "NVIDIA", "cik": "0001045810", "ticker": "NVDA"},
+    {"name": "AMD", "cik": "0000002488", "ticker": "AMD"},
+    {"name": "Microsoft", "cik": "0000789019", "ticker": "MSFT"},
+    {"name": "Alphabet", "cik": "0001652044", "ticker": "GOOGL"},
+    {"name": "Meta", "cik": "0001326801", "ticker": "META"},
+    {"name": "Amazon", "cik": "0001018724", "ticker": "AMZN"},
+    {"name": "CoreWeave", "cik": "0001916046", "ticker": "CRWV"},
+    {"name": "TSMC", "cik": "0001046179", "ticker": "TSM"},
+]
+EDGAR_FORMS = {"10-K", "10-Q", "8-K", "10-K/A", "10-Q/A", "8-K/A"}
+
+# OpenRouter -- model pricing intelligence
+OPENROUTER_PROVIDERS = [
+    "anthropic", "openai", "google", "x-ai", "meta-llama",
+    "mistralai", "deepseek", "nvidia", "amazon", "qwen",
+]
+
 USER_AGENT = "AI-Cake-Fetcher/1.0 (+https://github.com/rafaelknuthLLM/news-test)"
 
 # --- Helpers -----------------------------------------------------------------
 
 
-def api_get(url):
+EDGAR_USER_AGENT = "AI-Cake-Fetcher moin@rafaelknuth.com"
+
+
+def api_get(url, user_agent=None):
     """Fetch JSON from a URL. Returns (data, error_msg)."""
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    ua = user_agent or USER_AGENT
+    req = urllib.request.Request(url, headers={"User-Agent": ua})
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return json.loads(resp.read()), None
@@ -82,7 +106,7 @@ def fetch_pypi(packages):
     results = []
     for i, pkg in enumerate(packages):
         if i > 0:
-            time.sleep(1)  # pypistats.org rate-limits rapid requests
+            time.sleep(1.5)  # pypistats.org rate-limits rapid requests
         stats, err = api_get(f"https://pypistats.org/api/packages/{pkg}/recent")
         meta, meta_err = api_get(f"https://pypi.org/pypi/{pkg}/json")
 
@@ -193,6 +217,77 @@ def fetch_github(repos):
     return results
 
 
+def fetch_edgar(companies, allowed_forms):
+    """Fetch recent SEC filings for each company."""
+    results = []
+    for co in companies:
+        data, err = api_get(f"https://data.sec.gov/submissions/CIK{co['cik']}.json", EDGAR_USER_AGENT)
+
+        if err:
+            print(f"  FAIL  EDGAR: {co['name']}: {err}")
+            results.append({"company": co["name"], "ticker": co["ticker"], "error": err})
+            continue
+
+        filings = data.get("filings", {}).get("recent", {})
+        forms = filings.get("form", [])
+        dates = filings.get("filingDate", [])
+        descs = filings.get("primaryDocDescription", [])
+        accessions = filings.get("accessionNumber", [])
+
+        recent = []
+        for i in range(min(len(forms), 50)):
+            if forms[i] in allowed_forms:
+                recent.append({
+                    "form": forms[i],
+                    "date": dates[i],
+                    "description": descs[i] if i < len(descs) else "",
+                    "accession": accessions[i] if i < len(accessions) else "",
+                })
+            if len(recent) >= 5:
+                break
+
+        entry = {
+            "company": co["name"],
+            "ticker": co["ticker"],
+            "cik": co["cik"],
+            "recent_filings": recent,
+        }
+        print(f"    OK  EDGAR: {co['name']} ({len(recent)} filings)")
+        results.append(entry)
+        time.sleep(0.2)  # SEC asks for max 10 req/sec
+
+    return results
+
+
+def fetch_openrouter(target_providers):
+    """Fetch model pricing from OpenRouter."""
+    data, err = api_get("https://openrouter.ai/api/v1/models")
+    if err:
+        print(f"  FAIL  OpenRouter: {err}")
+        return []
+
+    models = data.get("data", [])
+    results = []
+    for m in models:
+        mid = m.get("id", "")
+        provider = mid.split("/")[0] if "/" in mid else "unknown"
+        if provider not in target_providers:
+            continue
+        pricing = m.get("pricing", {})
+        prompt_cost = float(pricing.get("prompt", 0) or 0)
+        completion_cost = float(pricing.get("completion", 0) or 0)
+        results.append({
+            "model_id": mid,
+            "provider": provider,
+            "context_length": m.get("context_length", 0),
+            "prompt_cost_per_token": prompt_cost,
+            "completion_cost_per_token": completion_cost,
+        })
+
+    print(f"    OK  OpenRouter: {len(results)} models from {len(target_providers)} providers")
+    return results
+
+
 def fetch_huggingface(limit):
     """Fetch trending models from HuggingFace."""
     data, err = api_get(
@@ -238,6 +333,12 @@ def main():
     print("Fetching HuggingFace trending...")
     huggingface = fetch_huggingface(HF_MODEL_LIMIT)
 
+    print("Fetching SEC EDGAR filings...")
+    edgar = fetch_edgar(EDGAR_COMPANIES, EDGAR_FORMS)
+
+    print("Fetching OpenRouter model pricing...")
+    openrouter = fetch_openrouter(OPENROUTER_PROVIDERS)
+
     output = {
         "meta": {
             "generated_at": now.isoformat(),
@@ -247,6 +348,8 @@ def main():
                 "docker_images": len(DOCKER_IMAGES),
                 "github_repos": len(GITHUB_REPOS),
                 "huggingface_models": len(huggingface),
+                "edgar_companies": len(EDGAR_COMPANIES),
+                "openrouter_models": len(openrouter),
             },
         },
         "pypi": pypi,
@@ -254,6 +357,8 @@ def main():
         "docker": docker,
         "github": github,
         "huggingface": huggingface,
+        "edgar": edgar,
+        "openrouter": openrouter,
     }
 
     output_dir = Path(__file__).parent / "output"
@@ -262,8 +367,8 @@ def main():
     output_file = output_dir / f"ai_cake_apis_{timestamp}.json"
     output_file.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    total = len(pypi) + len(npm) + len(docker) + len(github) + len(huggingface)
-    print(f"\n  Done: {total} data points across 5 sources")
+    total = len(pypi) + len(npm) + len(docker) + len(github) + len(huggingface) + len(edgar) + len(openrouter)
+    print(f"\n  Done: {total} data points across 7 sources")
     print(f"  Output: {output_file}")
 
     return 0

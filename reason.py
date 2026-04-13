@@ -213,6 +213,52 @@ def build_signals_section(api_data):
             lines.append(f"| {i} | {name} | {dl} | {likes} | {ptype} |")
         lines.append("")
 
+    # --- SEC EDGAR filings ---
+    edgar = api_data.get("edgar", [])
+    if edgar:
+        has_filings = any(r.get("recent_filings") for r in edgar)
+        if has_filings:
+            lines.append("### SEC filings (AI-Cake companies)")
+            lines.append("")
+            lines.append("| Date | Company | Form | Description |")
+            lines.append("|---|---|---|---|")
+            all_filings = []
+            for co in edgar:
+                if co.get("error"):
+                    continue
+                for f in co.get("recent_filings", []):
+                    all_filings.append({
+                        "date": f["date"],
+                        "ticker": co["ticker"],
+                        "form": f["form"],
+                        "desc": f["description"][:60] if f["description"] else "",
+                    })
+            all_filings.sort(key=lambda x: x["date"], reverse=True)
+            for f in all_filings[:20]:
+                lines.append(f"| {f['date']} | {f['ticker']} | {f['form']} | {f['desc']} |")
+            lines.append("")
+
+    # --- OpenRouter model pricing ---
+    openrouter = api_data.get("openrouter", [])
+    if openrouter:
+        lines.append("### Model pricing (OpenRouter, flagship per provider)")
+        lines.append("")
+        lines.append("| Provider | Model | Context | $/M input | $/M output |")
+        lines.append("|---|---|---:|---:|---:|")
+        providers = {}
+        for m in openrouter:
+            prov = m["provider"]
+            if prov not in providers or m["prompt_cost_per_token"] > providers[prov]["prompt_cost_per_token"]:
+                providers[prov] = m
+        flagships = sorted(providers.values(), key=lambda m: m["prompt_cost_per_token"], reverse=True)
+        for m in flagships:
+            model_short = m["model_id"].split("/", 1)[1] if "/" in m["model_id"] else m["model_id"]
+            ctx = fmt_num(m["context_length"])
+            input_cost = f"${m['prompt_cost_per_token'] * 1_000_000:.2f}"
+            output_cost = f"${m['completion_cost_per_token'] * 1_000_000:.2f}"
+            lines.append(f"| {m['provider']} | {model_short} | {ctx} | {input_cost} | {output_cost} |")
+        lines.append("")
+
     return lines
 
 
