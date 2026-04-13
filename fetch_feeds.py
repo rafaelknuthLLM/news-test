@@ -16,15 +16,11 @@ import feedparser
 # --- Feed Registry -----------------------------------------------------------
 
 FEEDS = [
-    # Direct RSS feeds
-    {"source": "NVIDIA Newsroom", "url": "https://nvidianews.nvidia.com/rss.xml", "category": "rss"},
-    {"source": "OpenAI News", "url": "https://openai.com/news/rss.xml", "category": "rss"},
-    {"source": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "category": "rss"},
-    {"source": "arXiv cs.AI", "url": "http://arxiv.org/rss/cs.AI", "category": "rss"},
-    # GitHub releases Atom feeds (bare .atom is dead, /releases.atom works)
+    # arXiv research
+    {"source": "arXiv cs.AI", "url": "http://arxiv.org/rss/cs.AI", "category": "research"},
+    # GitHub releases (bare .atom is dead, /releases.atom works)
     {"source": "anthropics/claude-code", "url": "https://github.com/anthropics/claude-code/releases.atom", "category": "github"},
     {"source": "anthropics/anthropic-sdk-python", "url": "https://github.com/anthropics/anthropic-sdk-python/releases.atom", "category": "github"},
-    {"source": "anthropics/courses", "url": "https://github.com/anthropics/courses/releases.atom", "category": "github"},
     {"source": "openai/openai-python", "url": "https://github.com/openai/openai-python/releases.atom", "category": "github"},
     {"source": "huggingface/transformers", "url": "https://github.com/huggingface/transformers/releases.atom", "category": "github"},
     {"source": "NVIDIA/TensorRT", "url": "https://github.com/NVIDIA/TensorRT/releases.atom", "category": "github"},
