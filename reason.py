@@ -86,6 +86,21 @@ def find_latest(pattern, output_dir):
 # --- Section builders --------------------------------------------------------
 
 
+def trend_indicator(weekly, monthly):
+    """Compare weekly rate to monthly average. Returns arrow + percentage."""
+    if not weekly or not monthly or monthly == 0:
+        return ""
+    weekly_avg = monthly / 4.33  # avg weeks per month
+    if weekly_avg == 0:
+        return ""
+    delta = ((weekly - weekly_avg) / weekly_avg) * 100
+    if delta > 5:
+        return f" ^{delta:.0f}%"
+    elif delta < -5:
+        return f" v{abs(delta):.0f}%"
+    return " ="
+
+
 def build_signals_section(api_data):
     """Build the Signals section from API data."""
     lines = []
@@ -95,11 +110,10 @@ def build_signals_section(api_data):
     # --- PyPI adoption ---
     pypi = api_data.get("pypi", [])
     if pypi:
-        lines.append("### Package adoption (PyPI downloads)")
+        lines.append("### Python ecosystem (PyPI)")
         lines.append("")
-        lines.append("| Package | Last week | Last month | Latest version |")
-        lines.append("|---|---:|---:|---|")
-        # Sort by weekly downloads descending
+        lines.append("| Package | Weekly | Monthly | Trend | Latest |")
+        lines.append("|---|---:|---:|---|---|")
         pypi_sorted = sorted(
             pypi,
             key=lambda p: (p.get("downloads") or {}).get("last_week", 0),
@@ -108,12 +122,56 @@ def build_signals_section(api_data):
         for p in pypi_sorted:
             pkg = p["package"]
             dl = p.get("downloads") or {}
-            week = fmt_num(dl.get("last_week"))
-            month = fmt_num(dl.get("last_month"))
+            week = dl.get("last_week", 0)
+            month = dl.get("last_month", 0)
+            trend = trend_indicator(week, month)
             ver = p.get("latest_version") or "?"
             date = p.get("latest_date") or ""
             ver_str = f"{ver} ({date})" if date else ver
-            lines.append(f"| {pkg} | {week} | {month} | {ver_str} |")
+            lines.append(f"| {pkg} | {fmt_num(week)} | {fmt_num(month)} | {trend} | {ver_str} |")
+        lines.append("")
+
+    # --- npm adoption ---
+    npm = api_data.get("npm", [])
+    if npm:
+        lines.append("### JavaScript ecosystem (npm)")
+        lines.append("")
+        lines.append("| Package | Weekly | Monthly | Trend |")
+        lines.append("|---|---:|---:|---|")
+        npm_sorted = sorted(
+            npm,
+            key=lambda p: (p.get("downloads") or {}).get("last_week", 0) or 0,
+            reverse=True,
+        )
+        for p in npm_sorted:
+            pkg = p["package"]
+            dl = p.get("downloads") or {}
+            week = dl.get("last_week", 0) or 0
+            month = dl.get("last_month", 0) or 0
+            trend = trend_indicator(week, month)
+            lines.append(f"| {pkg} | {fmt_num(week)} | {fmt_num(month)} | {trend} |")
+        lines.append("")
+
+    # --- Docker Hub ---
+    docker = api_data.get("docker", [])
+    if docker:
+        lines.append("### Production deployment (Docker Hub pulls)")
+        lines.append("")
+        lines.append("| Image | Total pulls | Last updated |")
+        lines.append("|---|---:|---|")
+        docker_sorted = sorted(
+            docker,
+            key=lambda d: d.get("pull_count", 0),
+            reverse=True,
+        )
+        for d in docker_sorted:
+            if d.get("error"):
+                lines.append(f"| {d['image']} | error | |")
+                continue
+            image = d["image"]
+            pulls = fmt_num(d.get("pull_count"))
+            updated = d.get("last_updated", "")
+            lines.append(f"| {image} | {pulls} | {updated} |")
         lines.append("")
 
     # --- GitHub repos ---

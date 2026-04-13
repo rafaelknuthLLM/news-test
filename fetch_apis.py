@@ -27,6 +27,23 @@ PYPI_PACKAGES = [
     "together",
 ]
 
+NPM_PACKAGES = [
+    "@anthropic-ai/sdk",
+    "openai",
+    "langchain",
+    "@langchain/core",
+    "ai",              # Vercel AI SDK
+    "@huggingface/inference",
+]
+
+DOCKER_IMAGES = [
+    "nvidia/cuda",
+    "pytorch/pytorch",
+    "vllm/vllm-openai",
+    "huggingface/transformers-pytorch-gpu",
+    "ollama/ollama",
+]
+
 GITHUB_REPOS = [
     "anthropics/claude-code",
     "anthropics/anthropic-sdk-python",
@@ -36,6 +53,8 @@ GITHUB_REPOS = [
     "langchain-ai/langchain",
     "crewAIInc/crewAI",
     "microsoft/autogen",
+    "ollama/ollama",
+    "vllm-project/vllm",
 ]
 
 HF_MODEL_LIMIT = 20
@@ -64,9 +83,7 @@ def fetch_pypi(packages):
     for i, pkg in enumerate(packages):
         if i > 0:
             time.sleep(1)  # pypistats.org rate-limits rapid requests
-        # Download stats
         stats, err = api_get(f"https://pypistats.org/api/packages/{pkg}/recent")
-        # Package metadata
         meta, meta_err = api_get(f"https://pypi.org/pypi/{pkg}/json")
 
         entry = {"package": pkg}
@@ -82,7 +99,6 @@ def fetch_pypi(packages):
             entry["latest_date"] = None
         else:
             entry["latest_version"] = meta["info"]["version"]
-            # Find upload date of latest version
             releases = meta.get("releases", {})
             latest_files = releases.get(meta["info"]["version"], [])
             if latest_files:
@@ -92,6 +108,60 @@ def fetch_pypi(packages):
 
         ok = "OK" if not err else "FAIL"
         print(f"  {ok:>4}  PyPI: {pkg}")
+        results.append(entry)
+
+    return results
+
+
+def fetch_npm(packages):
+    """Fetch download stats for npm packages."""
+    results = []
+    for pkg in packages:
+        # npm API uses URL-encoded package names for scoped packages
+        encoded = pkg.replace("/", "%2F")
+        week_data, week_err = api_get(
+            f"https://api.npmjs.org/downloads/point/last-week/{encoded}"
+        )
+        month_data, month_err = api_get(
+            f"https://api.npmjs.org/downloads/point/last-month/{encoded}"
+        )
+
+        entry = {"package": pkg}
+
+        if week_err and month_err:
+            entry["error"] = week_err
+            entry["downloads"] = None
+            print(f"  FAIL  npm: {pkg}")
+        else:
+            entry["downloads"] = {
+                "last_week": week_data.get("downloads", 0) if week_data else None,
+                "last_month": month_data.get("downloads", 0) if month_data else None,
+            }
+            print(f"    OK  npm: {pkg}")
+
+        results.append(entry)
+
+    return results
+
+
+def fetch_docker(images):
+    """Fetch pull counts from Docker Hub."""
+    results = []
+    for image in images:
+        data, err = api_get(f"https://hub.docker.com/v2/repositories/{image}/")
+
+        if err:
+            print(f"  FAIL  Docker: {image}: {err}")
+            results.append({"image": image, "error": err})
+            continue
+
+        entry = {
+            "image": image,
+            "pull_count": data.get("pull_count", 0),
+            "star_count": data.get("star_count", 0),
+            "last_updated": data.get("last_updated", "")[:10],
+        }
+        print(f"    OK  Docker: {image}")
         results.append(entry)
 
     return results
@@ -156,6 +226,12 @@ def main():
     print("Fetching PyPI stats...")
     pypi = fetch_pypi(PYPI_PACKAGES)
 
+    print("Fetching npm stats...")
+    npm = fetch_npm(NPM_PACKAGES)
+
+    print("Fetching Docker Hub stats...")
+    docker = fetch_docker(DOCKER_IMAGES)
+
     print("Fetching GitHub stats...")
     github = fetch_github(GITHUB_REPOS)
 
@@ -167,11 +243,15 @@ def main():
             "generated_at": now.isoformat(),
             "sources": {
                 "pypi_packages": len(PYPI_PACKAGES),
+                "npm_packages": len(NPM_PACKAGES),
+                "docker_images": len(DOCKER_IMAGES),
                 "github_repos": len(GITHUB_REPOS),
                 "huggingface_models": len(huggingface),
             },
         },
         "pypi": pypi,
+        "npm": npm,
+        "docker": docker,
         "github": github,
         "huggingface": huggingface,
     }
@@ -182,7 +262,8 @@ def main():
     output_file = output_dir / f"ai_cake_apis_{timestamp}.json"
     output_file.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    print(f"\n  Done: {len(pypi)} packages, {len(github)} repos, {len(huggingface)} models")
+    total = len(pypi) + len(npm) + len(docker) + len(github) + len(huggingface)
+    print(f"\n  Done: {total} data points across 5 sources")
     print(f"  Output: {output_file}")
 
     return 0
