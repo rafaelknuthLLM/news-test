@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 AI-Cake News Aggregator -- Layer 2 (REASON)
-Filters, categorizes, and formats Layer 1 data into a readable briefing.
+Reads feed data + API data, produces a unified briefing.
 No LLM calls. Pure filtering and formatting.
 """
 
@@ -31,7 +31,6 @@ ARXIV_KEYWORDS = [
 ]
 
 # Compile a single regex for speed
-# Keywords starting with \b are already regex patterns; others get escaped
 _ARXIV_PATTERN = re.compile(
     "|".join(kw if kw.startswith(r"\b") else re.escape(kw) for kw in ARXIV_KEYWORDS),
     re.IGNORECASE,
@@ -71,57 +70,108 @@ def truncate(text, length=200):
     return text[:length].rsplit(" ", 1)[0] + "..."
 
 
-# --- Main --------------------------------------------------------------------
+def fmt_num(n):
+    """Format a number with commas."""
+    if n is None:
+        return "n/a"
+    return f"{n:,}"
 
 
-def main():
-    output_dir = Path(__file__).parent / "output"
+def find_latest(pattern, output_dir):
+    """Find the most recent file matching a glob pattern."""
+    files = sorted(output_dir.glob(pattern), reverse=True)
+    return files[0] if files else None
 
-    # Find the most recent Layer 1 JSON
-    json_files = sorted(output_dir.glob("ai_cake_feed_*.json"), reverse=True)
-    if not json_files:
-        print("No Layer 1 output found in output/. Run fetch_feeds.py first.", file=sys.stderr)
-        return 1
 
-    latest = json_files[0]
-    print(f"  Reading: {latest.name}")
+# --- Section builders --------------------------------------------------------
 
-    with open(latest, encoding="utf-8") as f:
-        data = json.load(f)
 
-    # Filter to last N days
-    now = datetime.now(timezone.utc)
-    cutoff = now - timedelta(days=DAYS_BACK)
+def build_signals_section(api_data):
+    """Build the Signals section from API data."""
+    lines = []
+    lines.append("## Signals (API data)")
+    lines.append("")
 
+    # --- PyPI adoption ---
+    pypi = api_data.get("pypi", [])
+    if pypi:
+        lines.append("### Package adoption (PyPI downloads)")
+        lines.append("")
+        lines.append("| Package | Last week | Last month | Latest version |")
+        lines.append("|---|---:|---:|---|")
+        # Sort by weekly downloads descending
+        pypi_sorted = sorted(
+            pypi,
+            key=lambda p: (p.get("downloads") or {}).get("last_week", 0),
+            reverse=True,
+        )
+        for p in pypi_sorted:
+            pkg = p["package"]
+            dl = p.get("downloads") or {}
+            week = fmt_num(dl.get("last_week"))
+            month = fmt_num(dl.get("last_month"))
+            ver = p.get("latest_version") or "?"
+            date = p.get("latest_date") or ""
+            ver_str = f"{ver} ({date})" if date else ver
+            lines.append(f"| {pkg} | {week} | {month} | {ver_str} |")
+        lines.append("")
+
+    # --- GitHub repos ---
+    github = api_data.get("github", [])
+    if github:
+        lines.append("### Repository activity (GitHub)")
+        lines.append("")
+        lines.append("| Repo | Stars | Forks | Open issues | Last push |")
+        lines.append("|---|---:|---:|---:|---|")
+        github_sorted = sorted(
+            github,
+            key=lambda r: r.get("stars", 0),
+            reverse=True,
+        )
+        for r in github_sorted:
+            if r.get("error"):
+                lines.append(f"| {r['repo']} | error | | | |")
+                continue
+            repo = r["repo"]
+            stars = fmt_num(r.get("stars"))
+            forks = fmt_num(r.get("forks"))
+            issues = fmt_num(r.get("open_issues"))
+            pushed = r.get("pushed_at", "")[:10]
+            lines.append(f"| {repo} | {stars} | {forks} | {issues} | {pushed} |")
+        lines.append("")
+
+    # --- HuggingFace trending ---
+    hf = api_data.get("huggingface", [])
+    if hf:
+        lines.append("### Trending models (HuggingFace, by likes this week)")
+        lines.append("")
+        lines.append("| # | Model | Downloads | Likes | Type |")
+        lines.append("|--:|---|---:|---:|---|")
+        for i, m in enumerate(hf[:15], 1):
+            name = m.get("model_id", "unknown")
+            dl = fmt_num(m.get("downloads"))
+            likes = fmt_num(m.get("likes"))
+            ptype = m.get("pipeline_tag", "n/a")
+            lines.append(f"| {i} | {name} | {dl} | {likes} | {ptype} |")
+        lines.append("")
+
+    return lines
+
+
+def build_releases_section(feed_data, cutoff):
+    """Build the Releases section from feed data."""
     releases = []
-    arxiv_matched = []
-    arxiv_total = 0
-
-    for item in data["items"]:
+    for item in feed_data.get("items", []):
+        if item.get("category") != "github":
+            continue
         dt = parse_iso(item.get("published"))
         if not dt or dt < cutoff:
             continue
+        releases.append((item, dt))
 
-        if item["category"] == "research":
-            arxiv_total += 1
-            if matches_arxiv_keywords(item):
-                arxiv_matched.append((item, dt))
-        elif item["category"] == "github":
-            releases.append((item, dt))
-
-    # Sort newest first
     releases.sort(key=lambda x: x[1], reverse=True)
-    arxiv_matched.sort(key=lambda x: x[1], reverse=True)
 
-    # Build markdown briefing
     lines = []
-    lines.append(f"# AI-Cake Weekly Briefing")
-    lines.append(f"**Generated:** {now.strftime('%Y-%m-%d %H:%M UTC')}")
-    lines.append(f"**Period:** last {DAYS_BACK} days")
-    lines.append(f"**Source:** {latest.name}")
-    lines.append("")
-
-    # --- Releases ---
     lines.append(f"## Releases ({len(releases)} items)")
     lines.append("")
     if releases:
@@ -141,15 +191,34 @@ def main():
         lines.append("No releases in this period.")
         lines.append("")
 
-    # --- Research ---
+    return lines, len(releases)
+
+
+def build_research_section(feed_data, cutoff):
+    """Build the Research section from feed data."""
+    arxiv_matched = []
+    arxiv_total = 0
+
+    for item in feed_data.get("items", []):
+        if item.get("category") != "research":
+            continue
+        dt = parse_iso(item.get("published"))
+        if not dt or dt < cutoff:
+            continue
+        arxiv_total += 1
+        if matches_arxiv_keywords(item):
+            arxiv_matched.append((item, dt))
+
+    arxiv_matched.sort(key=lambda x: x[1], reverse=True)
     arxiv_filtered = arxiv_total - len(arxiv_matched)
+
+    lines = []
     lines.append(f"## Research ({len(arxiv_matched)} relevant / {arxiv_total} total arXiv cs.AI)")
     lines.append(f"*Filtered by keyword relevance. {arxiv_filtered} papers skipped.*")
     lines.append("")
     if arxiv_matched:
         for item, dt in arxiv_matched:
             title = (item["title"] or "(no title)").strip()
-            # Clean arXiv prefix from title
             title = re.sub(r"^arXiv:\d+\.\d+v?\d*\s*", "", title)
             summary = truncate(item.get("summary"), 300)
             link = item.get("link") or ""
@@ -163,22 +232,93 @@ def main():
         lines.append("No keyword-matched papers in this period.")
         lines.append("")
 
-    # --- Meta ---
+    return lines, len(arxiv_matched), arxiv_total
+
+
+# --- Main --------------------------------------------------------------------
+
+
+def main():
+    output_dir = Path(__file__).parent / "output"
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=DAYS_BACK)
+
+    # Find data files
+    feed_file = find_latest("ai_cake_feed_*.json", output_dir)
+    api_file = find_latest("ai_cake_apis_*.json", output_dir)
+
+    if not feed_file and not api_file:
+        print("No data files found. Run fetch_feeds.py and/or fetch_apis.py first.", file=sys.stderr)
+        return 1
+
+    feed_data = {}
+    api_data = {}
+    sources_used = []
+
+    if feed_file:
+        print(f"  Reading: {feed_file.name}")
+        with open(feed_file, encoding="utf-8") as f:
+            feed_data = json.load(f)
+        sources_used.append(feed_file.name)
+
+    if api_file:
+        print(f"  Reading: {api_file.name}")
+        with open(api_file, encoding="utf-8") as f:
+            api_data = json.load(f)
+        sources_used.append(api_file.name)
+
+    # Build briefing
+    lines = []
+    lines.append("# AI-Cake Weekly Briefing")
+    lines.append(f"**Generated:** {now.strftime('%Y-%m-%d %H:%M UTC')}")
+    lines.append(f"**Period:** last {DAYS_BACK} days")
+    lines.append(f"**Sources:** {', '.join(sources_used)}")
+    lines.append("")
+
+    # Section 1: Signals (from APIs)
+    release_count = 0
+    research_matched = 0
+    research_total = 0
+
+    if api_data:
+        lines.extend(build_signals_section(api_data))
+
+    # Section 2: Releases (from feeds)
+    if feed_data:
+        release_lines, release_count = build_releases_section(feed_data, cutoff)
+        lines.extend(release_lines)
+
+    # Section 3: Research (from feeds)
+    if feed_data:
+        research_lines, research_matched, research_total = build_research_section(feed_data, cutoff)
+        lines.extend(research_lines)
+
+    # Footer
     lines.append("---")
-    lines.append(f"*Layer 1 feeds: {data['meta']['total_feeds']} | "
-                 f"Layer 1 items: {data['meta']['total_items']} | "
-                 f"After date filter: {len(releases) + arxiv_total} | "
-                 f"After keyword filter: {len(releases) + len(arxiv_matched)}*")
+    meta_parts = []
+    if api_data:
+        s = api_data.get("meta", {}).get("sources", {})
+        meta_parts.append(f"APIs: {s.get('pypi_packages', 0)} packages, "
+                          f"{s.get('github_repos', 0)} repos, "
+                          f"{s.get('huggingface_models', 0)} models")
+    if feed_data:
+        meta_parts.append(f"Feeds: {feed_data.get('meta', {}).get('total_feeds', 0)} sources, "
+                          f"{feed_data.get('meta', {}).get('total_items', 0)} items")
+    meta_parts.append(f"Briefing: {release_count} releases, {research_matched}/{research_total} papers")
+    lines.append(f"*{' | '.join(meta_parts)}*")
 
     briefing = "\n".join(lines)
 
-    # Write briefing
+    # Write
     timestamp = now.strftime("%Y%m%d_%H%M")
     briefing_file = output_dir / f"briefing_{timestamp}.md"
     briefing_file.write_text(briefing, encoding="utf-8")
 
-    print(f"  Releases: {len(releases)}")
-    print(f"  Research: {len(arxiv_matched)}/{arxiv_total} (keyword-filtered)")
+    print(f"  Signals: {len(api_data.get('pypi', []))} packages, "
+          f"{len(api_data.get('github', []))} repos, "
+          f"{len(api_data.get('huggingface', []))} models")
+    print(f"  Releases: {release_count}")
+    print(f"  Research: {research_matched}/{research_total} (keyword-filtered)")
     print(f"  Output:   {briefing_file}")
 
     return 0
