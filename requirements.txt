@@ -1,1 +1,3 @@
 feedparser
+anthropic
+python-dotenv
