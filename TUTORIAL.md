@@ -45,17 +45,15 @@ Two Python scripts hit 9 structured data sources and save the results as JSON fi
 
 **What gets fetched:**
 
-| Source | What It Tells You |
-|---|---|
-| **PyPI** (Python Package Index) | How many developers downloaded each AI package this week -- the real adoption signal |
-| **npm** (Node Package Manager) | Same for JavaScript developers -- a different community with different preferences |
-| **Docker Hub** | How many times AI containers were pulled for production deployment -- not just installed, but actually used |
-| **GitHub** | Stars, forks, open issues for key repos -- developer excitement and project health |
-| **HuggingFace** | Which AI models are trending -- what the community is actually downloading and experimenting with |
-| **SEC EDGAR** | Financial filings from NVIDIA, AMD, Microsoft, Google, Meta, Amazon -- where the big money is going |
-| **OpenRouter** | Real-time pricing for 232 AI models across all major providers -- the competitive landscape |
-| **arXiv** | Today's AI research papers -- what academics and corporate labs are publishing |
-| **GitHub Releases** | Version-by-version changelogs from key AI projects -- what actually shipped this week |
+- **PyPI** (Python Package Index) -- How many developers downloaded each AI package this week -- the real adoption signal
+- **npm** (Node Package Manager) -- Same for JavaScript developers -- a different community with different preferences
+- **Docker Hub** -- How many times AI containers were pulled for production deployment -- not just installed, but actually used
+- **GitHub** -- Stars, forks, open issues for key repos -- developer excitement and project health
+- **HuggingFace** -- Which AI models are trending -- what the community is actually downloading and experimenting with
+- **SEC EDGAR** -- Financial filings from NVIDIA, AMD, Microsoft, Google, Meta, Amazon -- where the big money is going
+- **OpenRouter** -- Real-time pricing for 232 AI models across all major providers -- the competitive landscape
+- **arXiv** -- Today's AI research papers -- what academics and corporate labs are publishing
+- **GitHub Releases** -- Version-by-version changelogs from key AI projects -- what actually shipped this week
 
 ### Layer 2: REASON (costs ~$0.06 per run)
 
@@ -89,11 +87,9 @@ None of this analysis exists in any news article. It was derived entirely from s
 
 ## The Economics
 
-| Approach | Cost | Quality |
-|---|---|---|
-| AI scraping news websites | ~$1-5 per run (token-heavy) | Rehashes existing journalism |
-| Human reading news manually | 1-2 hours per day | Subjective, limited sources |
-| **This system** | **$0.06 per run** | **Original analysis from 9 machine-native sources** |
+- **AI scraping news websites** -- ~$1-5 per run (token-heavy), rehashes existing journalism
+- **Human reading news manually** -- 1-2 hours per day, subjective, limited sources
+- **This system** -- $0.06 per run, original analysis from 9 machine-native sources
 
 At $0.06 per run, you could generate a briefing every single day for a month and spend $1.80.
 
