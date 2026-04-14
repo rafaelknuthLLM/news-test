@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Expected structure of AI-Cake API data. Used to validate fetch_apis.py output before analysis.",
+
+  "pypi_item": {
+    "required_fields": ["package"],
+    "expected_fields": {
+      "package": {"type": "string"},
+      "downloads": {
+        "type": "object",
+        "fields": {
+          "last_day": {"type": "integer", "min": 0},
+          "last_week": {"type": "integer", "min": 0},
+          "last_month": {"type": "integer", "min": 0}
+        }
+      },
+      "latest_version": {"type": "string"},
+      "latest_date": {"type": "string", "format": "YYYY-MM-DD"}
+    }
+  },
+
+  "npm_item": {
+    "required_fields": ["package"],
+    "expected_fields": {
+      "package": {"type": "string"},
+      "downloads": {
+        "type": "object",
+        "fields": {
+          "last_week": {"type": "integer", "min": 0},
+          "last_month": {"type": "integer", "min": 0}
+        }
+      }
+    }
+  },
+
+  "docker_item": {
+    "required_fields": ["image"],
+    "expected_fields": {
+      "image": {"type": "string"},
+      "pull_count": {"type": "integer", "min": 0},
+      "star_count": {"type": "integer", "min": 0},
+      "last_updated": {"type": "string", "format": "YYYY-MM-DD"}
+    }
+  },
+
+  "github_item": {
+    "required_fields": ["repo"],
+    "expected_fields": {
+      "repo": {"type": "string"},
+      "stars": {"type": "integer", "min": 0},
+      "forks": {"type": "integer", "min": 0},
+      "open_issues": {"type": "integer", "min": 0},
+      "watchers": {"type": "integer", "min": 0},
+      "pushed_at": {"type": "string", "format": "ISO8601"},
+      "created_at": {"type": "string", "format": "YYYY-MM-DD"}
+    }
+  },
+
+  "huggingface_item": {
+    "required_fields": ["model_id"],
+    "expected_fields": {
+      "model_id": {"type": "string"},
+      "downloads": {"type": "integer", "min": 0},
+      "likes": {"type": "integer", "min": 0},
+      "pipeline_tag": {"type": "string"},
+      "created_at": {"type": "string", "format": "YYYY-MM-DD", "nullable": true}
+    }
+  },
+
+  "edgar_item": {
+    "required_fields": ["company", "ticker"],
+    "expected_fields": {
+      "company": {"type": "string"},
+      "ticker": {"type": "string"},
+      "cik": {"type": "string"},
+      "recent_filings": {
+        "type": "array",
+        "item_fields": {
+          "form": {"type": "string", "valid_values": ["10-K", "10-Q", "8-K", "10-K/A", "10-Q/A", "8-K/A"]},
+          "date": {"type": "string", "format": "YYYY-MM-DD"},
+          "description": {"type": "string"},
+          "accession": {"type": "string"}
+        }
+      }
+    }
+  },
+
+  "openrouter_item": {
+    "required_fields": ["model_id", "provider"],
+    "expected_fields": {
+      "model_id": {"type": "string"},
+      "provider": {"type": "string"},
+      "context_length": {"type": "integer", "min": 0},
+      "prompt_cost_per_token": {"type": "number", "min": 0},
+      "completion_cost_per_token": {"type": "number", "min": 0}
+    }
+  },
+
+  "feed_item": {
+    "required_fields": ["source", "category"],
+    "expected_fields": {
+      "source": {"type": "string"},
+      "category": {"type": "string", "valid_values": ["research", "github"]},
+      "title": {"type": "string", "nullable": true},
+      "published": {"type": "string", "format": "ISO8601", "nullable": true},
+      "summary": {"type": "string", "nullable": true},
+      "link": {"type": "string", "nullable": true}
+    }
+  }
+}
