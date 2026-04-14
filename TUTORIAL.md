@@ -18,7 +18,7 @@ Most people choose Option A because Option B is impractical. This project automa
 
 ## The Key Insight
 
-This project started as Option A -- we tried to have AI scrape news websites and summarize them. That approach was expensive (it burned 70% of a session's token budget in just 3 runs) and produced shallow output (it was essentially rehashing what journalists had already written).
+This project started as Option A -- we tried to have AI scrape news websites and summarize them. That approach was expensive (three test runs burned through 70% of the session's token budget (Claude Max 5x plan)) and produced shallow output (it was essentially rehashing what journalists had already written).
 
 The breakthrough came from flipping the question:
 
