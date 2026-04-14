@@ -1,0 +1,412 @@
+{
+  "meta": {
+    "generated_at": "2026-04-13T23:15:00.808182+00:00",
+    "sources": {
+      "pypi_packages": 10,
+      "npm_packages": 6,
+      "docker_images": 5,
+      "github_repos": 10,
+      "huggingface_models": 20
+    }
+  },
+  "pypi": [
+    {
+      "package": "anthropic",
+      "downloads": {
+        "last_day": 2720522,
+        "last_month": 87791447,
+        "last_week": 23230041
+      },
+      "latest_version": "0.94.1",
+      "latest_date": "2026-04-13"
+    },
+    {
+      "package": "openai",
+      "downloads": {
+        "last_day": 6202218,
+        "last_month": 231779510,
+        "last_week": 58698836
+      },
+      "latest_version": "2.31.0",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "package": "langchain",
+      "downloads": {
+        "last_day": 6851753,
+        "last_month": 226118242,
+        "last_week": 54658721
+      },
+      "latest_version": "1.2.15",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "package": "langchain-core",
+      "downloads": {
+        "last_day": 2518835,
+        "last_month": 101444806,
+        "last_week": 24855447
+      },
+      "latest_version": "1.2.28",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "package": "transformers",
+      "downloads": {
+        "last_day": 3291846,
+        "last_month": 125120678,
+        "last_week": 28123766
+      },
+      "latest_version": "5.5.4",
+      "latest_date": "2026-04-13"
+    },
+    {
+      "package": "crewai",
+      "downloads": {
+        "last_day": 175850,
+        "last_month": 6049882,
+        "last_week": 1462479
+      },
+      "latest_version": "1.14.1",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "package": "autogen",
+      "error": "HTTP Error 429: Too Many Requests",
+      "downloads": null,
+      "latest_version": "0.11.5",
+      "latest_date": "2026-04-05"
+    },
+    {
+      "package": "llama-index",
+      "error": "HTTP Error 429: Too Many Requests",
+      "downloads": null,
+      "latest_version": "0.14.20",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "package": "vllm",
+      "error": "HTTP Error 429: Too Many Requests",
+      "downloads": null,
+      "latest_version": "0.19.0",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "package": "together",
+      "error": "HTTP Error 429: Too Many Requests",
+      "downloads": null,
+      "latest_version": "2.8.0",
+      "latest_date": "2026-04-13"
+    }
+  ],
+  "npm": [
+    {
+      "package": "@anthropic-ai/sdk",
+      "downloads": {
+        "last_week": 13388288,
+        "last_month": 47000688
+      }
+    },
+    {
+      "package": "openai",
+      "downloads": {
+        "last_week": 17121279,
+        "last_month": 68368956
+      }
+    },
+    {
+      "package": "langchain",
+      "downloads": {
+        "last_week": 2134105,
+        "last_month": 9114436
+      }
+    },
+    {
+      "package": "@langchain/core",
+      "downloads": {
+        "last_week": 3574230,
+        "last_month": 14705769
+      }
+    },
+    {
+      "package": "ai",
+      "downloads": {
+        "last_week": 10616668,
+        "last_month": 42403121
+      }
+    },
+    {
+      "package": "@huggingface/inference",
+      "downloads": {
+        "last_week": 356533,
+        "last_month": 1553586
+      }
+    }
+  ],
+  "docker": [
+    {
+      "image": "nvidia/cuda",
+      "pull_count": 106415017,
+      "star_count": 1970,
+      "last_updated": "2026-03-17"
+    },
+    {
+      "image": "pytorch/pytorch",
+      "pull_count": 17293433,
+      "star_count": 1612,
+      "last_updated": "2026-03-23"
+    },
+    {
+      "image": "vllm/vllm-openai",
+      "pull_count": 17788804,
+      "star_count": 271,
+      "last_updated": "2026-04-13"
+    },
+    {
+      "image": "huggingface/transformers-pytorch-gpu",
+      "pull_count": 447515,
+      "star_count": 104,
+      "last_updated": "2025-10-25"
+    },
+    {
+      "image": "ollama/ollama",
+      "pull_count": 121155982,
+      "star_count": 1554,
+      "last_updated": "2026-04-13"
+    }
+  ],
+  "github": [
+    {
+      "repo": "anthropics/claude-code",
+      "stars": 113481,
+      "forks": 18969,
+      "open_issues": 9633,
+      "watchers": 706,
+      "pushed_at": "2026-04-13T21:53:12Z",
+      "created_at": "2025-02-22"
+    },
+    {
+      "repo": "anthropics/anthropic-sdk-python",
+      "stars": 3234,
+      "forks": 608,
+      "open_issues": 210,
+      "watchers": 183,
+      "pushed_at": "2026-04-13T18:07:46Z",
+      "created_at": "2023-01-17"
+    },
+    {
+      "repo": "openai/openai-python",
+      "stars": 30483,
+      "forks": 4702,
+      "open_issues": 383,
+      "watchers": 345,
+      "pushed_at": "2026-04-13T20:43:09Z",
+      "created_at": "2020-10-25"
+    },
+    {
+      "repo": "huggingface/transformers",
+      "stars": 159313,
+      "forks": 32860,
+      "open_issues": 2354,
+      "watchers": 1195,
+      "pushed_at": "2026-04-13T19:34:21Z",
+      "created_at": "2018-10-29"
+    },
+    {
+      "repo": "NVIDIA/TensorRT",
+      "stars": 12891,
+      "forks": 2344,
+      "open_issues": 579,
+      "watchers": 158,
+      "pushed_at": "2026-04-13T22:59:10Z",
+      "created_at": "2019-05-02"
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "stars": 133441,
+      "forks": 22045,
+      "open_issues": 517,
+      "watchers": 851,
+      "pushed_at": "2026-04-13T22:18:02Z",
+      "created_at": "2022-10-17"
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "stars": 48800,
+      "forks": 6665,
+      "open_issues": 512,
+      "watchers": 351,
+      "pushed_at": "2026-04-13T23:11:50Z",
+      "created_at": "2023-10-27"
+    },
+    {
+      "repo": "microsoft/autogen",
+      "stars": 57049,
+      "forks": 8583,
+      "open_issues": 764,
+      "watchers": 516,
+      "pushed_at": "2026-04-06T22:35:34Z",
+      "created_at": "2023-08-18"
+    },
+    {
+      "repo": "ollama/ollama",
+      "stars": 168853,
+      "forks": 15572,
+      "open_issues": 2923,
+      "watchers": 944,
+      "pushed_at": "2026-04-13T22:37:06Z",
+      "created_at": "2023-06-26"
+    },
+    {
+      "repo": "vllm-project/vllm",
+      "stars": 76446,
+      "forks": 15537,
+      "open_issues": 4214,
+      "watchers": 522,
+      "pushed_at": "2026-04-13T23:01:25Z",
+      "created_at": "2023-02-09"
+    }
+  ],
+  "huggingface": [
+    {
+      "model_id": "zai-org/GLM-5.1",
+      "downloads": 35906,
+      "likes": 1141,
+      "pipeline_tag": "text-generation",
+      "created_at": "2026-04-03"
+    },
+    {
+      "model_id": "openbmb/VoxCPM2",
+      "downloads": 9301,
+      "likes": 813,
+      "pipeline_tag": "text-to-speech",
+      "created_at": "2026-04-03"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it",
+      "downloads": 2439350,
+      "likes": 1834,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-03-11"
+    },
+    {
+      "model_id": "MiniMaxAI/MiniMax-M2.7",
+      "downloads": 18279,
+      "likes": 631,
+      "pipeline_tag": "text-generation",
+      "created_at": "2026-04-09"
+    },
+    {
+      "model_id": "dealignai/Gemma-4-31B-JANG_4M-CRACK",
+      "downloads": 107378,
+      "likes": 1012,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-04-04"
+    },
+    {
+      "model_id": "netflix/void-model",
+      "downloads": 0,
+      "likes": 793,
+      "pipeline_tag": "video-to-video",
+      "created_at": "2026-03-30"
+    },
+    {
+      "model_id": "k2-fsa/OmniVoice",
+      "downloads": 460224,
+      "likes": 541,
+      "pipeline_tag": "text-to-speech",
+      "created_at": "2026-03-30"
+    },
+    {
+      "model_id": "Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled",
+      "downloads": 585351,
+      "likes": 2618,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-02-27"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it",
+      "downloads": 1394523,
+      "likes": 629,
+      "pipeline_tag": "any-to-any",
+      "created_at": "2026-03-02"
+    },
+    {
+      "model_id": "LilaRest/gemma-4-31B-it-NVFP4-turbo",
+      "downloads": 28829,
+      "likes": 192,
+      "pipeline_tag": "text-generation",
+      "created_at": "2026-04-07"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B-it",
+      "downloads": 1913569,
+      "likes": 636,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-03-11"
+    },
+    {
+      "model_id": "unsloth/gemma-4-26B-A4B-it-GGUF",
+      "downloads": 1803416,
+      "likes": 454,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-04-01"
+    },
+    {
+      "model_id": "tencent/HY-Embodied-0.5",
+      "downloads": 642,
+      "likes": 167,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-04-02"
+    },
+    {
+      "model_id": "HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive",
+      "downloads": 486019,
+      "likes": 293,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-04-02"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it",
+      "downloads": 952048,
+      "likes": 421,
+      "pipeline_tag": "any-to-any",
+      "created_at": "2026-03-02"
+    },
+    {
+      "model_id": "nvidia/Gemma-4-31B-IT-NVFP4",
+      "downloads": 757154,
+      "likes": 370,
+      "pipeline_tag": "text-generation",
+      "created_at": "2026-04-02"
+    },
+    {
+      "model_id": "unsloth/GLM-5.1-GGUF",
+      "downloads": 28533,
+      "likes": 136,
+      "pipeline_tag": "text-generation",
+      "created_at": "2026-04-06"
+    },
+    {
+      "model_id": "Jiunsong/supergemma4-26b-uncensored-gguf-v2",
+      "downloads": 7307,
+      "likes": 135,
+      "pipeline_tag": "text-generation",
+      "created_at": "2026-04-11"
+    },
+    {
+      "model_id": "baidu/Qianfan-OCR",
+      "downloads": 56563,
+      "likes": 1143,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-03-18"
+    },
+    {
+      "model_id": "LGAI-EXAONE/EXAONE-4.5-33B",
+      "downloads": 4148,
+      "likes": 128,
+      "pipeline_tag": "image-text-to-text",
+      "created_at": "2026-04-04"
+    }
+  ]
+}

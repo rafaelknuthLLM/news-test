@@ -1,0 +1,83 @@
+```json
+[
+  {
+    "what": "Anthropic SDK velocity accelerated dramatically -- 11 releases in 13 days (v0.86.0 to v0.94.1), with multi-week gaps absent from earlier this year.",
+    "why": "This signals active platform consolidation around Claude-as-a-service. The changelog shows intentional feature bundling: Bedrock Mantle support, managed agents, filesystem memory tools, structured outputs. Anthropic is racing to close gaps with OpenAI's platform maturity.",
+    "confidence": "high",
+    "sources": ["GitHub Releases (anthropics/anthropic-sdk-python)"]
+  },
+  {
+    "what": "Claude Code (113K stars, 9,641 open issues) has 18x more open issues than langchain (519) despite lower star count -- a flag for either aggressive feature velocity or user friction.",
+    "why": "High issue volume + rapid release cadence (weekly builds) suggests either (a) ambitious scope outpacing stability, or (b) strong user feedback loop driving quick iteration. This is the inverse of traditional enterprise software; it's feature-first, polish-second.",
+    "confidence": "medium",
+    "sources": ["GitHub Repositories"]
+  },
+  {
+    "what": "vLLM (3.1M PyPI downloads/week) is 2.5x ahead of llama-index (2.4M) and 40x ahead of autogen (36K), but autogen remains in conversation despite minimal package adoption.",
+    "why": "Suggests autogen's value is not in pip-install adoption but in notebook/tutorial mindshare and research interest. It's a 'discussion framework' not a 'production framework' -- different market. This matters for founder: package downloads ≠ market traction.",
+    "confidence": "high",
+    "sources": ["PyPI Downloads"]
+  },
+  {
+    "what": "OpenAI SDK (58.7M PyPI/week, 17.1M npm/week) is 2.5x larger than Anthropic (23.2M PyPI, 13.4M npm) in Python but nearly equal in JavaScript -- suggesting Node.js users are shifting toward multi-provider abstraction.",
+    "why": "JavaScript adoption is more price-elastic and framework-agnostic than Python (which is sticky to OpenAI for historical reasons). This is where Anthropic is winning: edge/serverless deployments and cost-conscious teams.",
+    "confidence": "high",
+    "sources": ["PyPI Downloads", "npm Downloads"]
+  },
+  {
+    "what": "Ollama (121M Docker pulls, live as of 2026-04-13) is now 1.1x larger than nvidia/cuda (106M), crossing a symbolic threshold where open-source local inference is production-grade.",
+    "why": "This isn't noise -- it means developers are confident enough in Ollama to deploy it at scale. The recency of the image pull data (updated 2026-04-13) shows active use, not legacy installs. This matters for agentic systems: local inference is now a viable Tier 1 deployment pattern.",
+    "confidence": "high",
+    "sources": ["Docker Hub"]
+  },
+  {
+    "what": "HuggingFace trending models are dominated by Gemma-4 quantized variants (4 in top 15) and distilled reasoning models (Qwen3.5-Claude-distilled at 2,619 likes), none published by Meta or Google directly.",
+    "why": "Community is aggressively fine-tuning and quantizing frontier models rather than using them as-is. This suggests (a) cost pressure is real, (b) instruction-tuning for specific tasks beats raw capability, and (c) open-source licensing is enabling derivative innovation that proprietary APIs can't match.",
+    "confidence": "high",
+    "sources": ["HuggingFace Trending Models"]
+  },
+  {
+    "what": "Model pricing has inverted: OpenAI o1-pro ($150/M) is now 50-75x more expensive than DeepSeek R1-distill ($0.70/M) and Google Gemini ($2/M), yet all three claim competitive reasoning capability.",
+    "why": "Price discovery is happening in real-time. Frontier reasoning models are converging toward $1-3/M input pricing. This is deflationary for 'thinking' workloads and creates a floor for agent-building economics. Solo founders can now afford to run complex agentic loops.",
+    "confidence": "high",
+    "sources": ["Model Pricing (OpenRouter)"]
+  },
+  {
+    "what": "arXiv papers show 'agent evaluation' and 'safety constraints' as primary research themes (SEA-Eval, PilotBench, OpenKedge, HiL-Bench appearing in single week), suggesting field is moving beyond 'can agents work?' to 'when do agents fail and who decides?'",
+    "why": "This is discipline maturation. The research frontier is now on evaluability, safety, and human-in-loop governance -- not raw capability. This means: (1) standards are being written now, (2) early agentic systems that don't consider these become legacy liabilities, (3) your choice of evaluation framework today shapes your options tomorrow.",
+    "confidence": "high",
+    "sources": ["arXiv cs.AI"]
+  }
+]
+```
+
+---
+
+## KEY CONTEXT FOR YOUR SITUATION
+
+**The Real Story:** You're watching a **platform transition**, not a hype cycle. Three signals confirm this:
+
+1. **Anthropic is building a moat** -- not just a model. The SDK velocity and managed-agents feature suggest they're going after entire agentic workflows. OpenAI's dominance in downloads masks a strategic weakness: their platform is for API consumers, not autonomous systems.
+
+2. **Local + quantized is now production-grade** -- Ollama's Docker numbers prove it. Combined with HuggingFace's quantization trends, you can build a serious agentic system without renting compute. This is deflationary for bootstrapped founders.
+
+3. **Pricing is normalizing to $1-3/M tokens** -- o1's $150/M is an outlier, not the market. If your agent needs to reason 100K tokens per task, you're looking at $0.10-0.30 per decision, not $15. Plan accordingly.
+
+---
+
+## DATA QUALITY FLAGS
+
+- **SEC Filings:** Form types only, no content parsed -- can't extract strategic signals (Bedrock partnerships, chip orders, etc.). Need SEC Edgar API pull, not just filing dates.
+- **arXiv:** Paper titles only -- can't assess methodological rigor or novelty. Appears to be CS.AI dump, not filtered by relevance.
+- **transformers (PyPI):** Shows 0 downloads for v5.5.4 despite being freshly updated -- likely a reporting artifact. Package is definitely live; trust GitHub activity instead.
+- **HuggingFace models:** No date on "trending this week" -- unclear if data is from this week or cached. Gemma-4 variants are 2-3 months old; unusual to see them spiking now unless there was a quantization release.
+
+---
+
+## WORTH WATCHING
+
+1. **Anthropic SDK vs. OpenAI SDK parity race** -- Next 2-3 weeks. If Anthropic closes the "managed agents" feature gap and prices below OpenAI for extended-context, expect rapid npm/pip migration. Watch for langchain-ai to announce "Anthropic-first" optimizations.
+
+2. **Local quantization adoption curve** -- Watch HuggingFace model downloads for non-Gemma-4 models stabilizing. If generalist models stay >1M downloads, it signals developers are past "experimenting locally" and moving to production self-hosting.
+
+3. **arXiv agent-evaluation paper citations** -- These 15 papers on SEA-Eval, PilotBench, and safety constraints will become de facto standards in 4-6 weeks. Whichever evaluation framework gets 10+ GitHub implementations first wins the "right way to test agents" narrative. Start reading now; cite early.

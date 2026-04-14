@@ -1,0 +1,679 @@
+{
+  "generated_at": "2026-04-14T21:32:14.905529+00:00",
+  "deterministic_facts_count": 57,
+  "deterministic_facts": [
+    {
+      "source": "PyPI",
+      "subject": "openai",
+      "metrics": {
+        "weekly_downloads": 59924394,
+        "monthly_downloads": 235863964,
+        "trend_vs_monthly_avg": 10.0
+      },
+      "latest_version": "2.31.0",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "source": "PyPI",
+      "subject": "langchain",
+      "metrics": {
+        "weekly_downloads": 54923219,
+        "monthly_downloads": 227450145,
+        "trend_vs_monthly_avg": 4.6
+      },
+      "latest_version": "1.2.15",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "source": "PyPI",
+      "subject": "transformers",
+      "metrics": {
+        "weekly_downloads": 28625398,
+        "monthly_downloads": 126021930,
+        "trend_vs_monthly_avg": -1.6
+      },
+      "latest_version": "5.5.4",
+      "latest_date": "2026-04-13"
+    },
+    {
+      "source": "PyPI",
+      "subject": "langchain-core",
+      "metrics": {
+        "weekly_downloads": 25304737,
+        "monthly_downloads": 103023176,
+        "trend_vs_monthly_avg": 6.4
+      },
+      "latest_version": "1.2.28",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "source": "PyPI",
+      "subject": "anthropic",
+      "metrics": {
+        "weekly_downloads": 23952084,
+        "monthly_downloads": 89947506,
+        "trend_vs_monthly_avg": 15.3
+      },
+      "latest_version": "0.94.1",
+      "latest_date": "2026-04-13"
+    },
+    {
+      "source": "PyPI",
+      "subject": "vllm",
+      "metrics": {
+        "weekly_downloads": 3139967,
+        "monthly_downloads": 9880137,
+        "trend_vs_monthly_avg": 37.6
+      },
+      "latest_version": "0.19.0",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "source": "PyPI",
+      "subject": "llama-index",
+      "metrics": {
+        "weekly_downloads": 2306182,
+        "monthly_downloads": 9929183,
+        "trend_vs_monthly_avg": 0.6
+      },
+      "latest_version": "0.14.20",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "source": "PyPI",
+      "subject": "together",
+      "metrics": {
+        "weekly_downloads": 1773974,
+        "monthly_downloads": 6991854,
+        "trend_vs_monthly_avg": 9.9
+      },
+      "latest_version": "2.8.0",
+      "latest_date": "2026-04-13"
+    },
+    {
+      "source": "PyPI",
+      "subject": "crewai",
+      "metrics": {
+        "weekly_downloads": 1519425,
+        "monthly_downloads": 6126307,
+        "trend_vs_monthly_avg": 7.4
+      },
+      "latest_version": "1.14.1",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "source": "PyPI",
+      "subject": "autogen",
+      "metrics": {
+        "weekly_downloads": 35790,
+        "monthly_downloads": 160029,
+        "trend_vs_monthly_avg": -3.2
+      },
+      "latest_version": "0.11.5",
+      "latest_date": "2026-04-05"
+    },
+    {
+      "source": "npm",
+      "subject": "openai",
+      "metrics": {
+        "weekly_downloads": 17774755,
+        "monthly_downloads": 69952995,
+        "trend_vs_monthly_avg": 10.0
+      }
+    },
+    {
+      "source": "npm",
+      "subject": "@anthropic-ai/sdk",
+      "metrics": {
+        "weekly_downloads": 13779454,
+        "monthly_downloads": 48425099,
+        "trend_vs_monthly_avg": 23.2
+      }
+    },
+    {
+      "source": "npm",
+      "subject": "ai",
+      "metrics": {
+        "weekly_downloads": 10972922,
+        "monthly_downloads": 43501883,
+        "trend_vs_monthly_avg": 9.2
+      }
+    },
+    {
+      "source": "npm",
+      "subject": "@langchain/core",
+      "metrics": {
+        "weekly_downloads": 3662694,
+        "monthly_downloads": 15071662,
+        "trend_vs_monthly_avg": 5.2
+      }
+    },
+    {
+      "source": "npm",
+      "subject": "langchain",
+      "metrics": {
+        "weekly_downloads": 2183124,
+        "monthly_downloads": 9337588,
+        "trend_vs_monthly_avg": 1.2
+      }
+    },
+    {
+      "source": "npm",
+      "subject": "@huggingface/inference",
+      "metrics": {
+        "weekly_downloads": 364803,
+        "monthly_downloads": 1567765,
+        "trend_vs_monthly_avg": 0.8
+      }
+    },
+    {
+      "source": "Docker Hub",
+      "subject": "ollama/ollama",
+      "metrics": {
+        "total_pulls": 121604598
+      },
+      "last_updated": "2026-04-14"
+    },
+    {
+      "source": "Docker Hub",
+      "subject": "nvidia/cuda",
+      "metrics": {
+        "total_pulls": 106465904
+      },
+      "last_updated": "2026-03-17"
+    },
+    {
+      "source": "Docker Hub",
+      "subject": "vllm/vllm-openai",
+      "metrics": {
+        "total_pulls": 17846383
+      },
+      "last_updated": "2026-04-14"
+    },
+    {
+      "source": "Docker Hub",
+      "subject": "pytorch/pytorch",
+      "metrics": {
+        "total_pulls": 17303465
+      },
+      "last_updated": "2026-03-23"
+    },
+    {
+      "source": "Docker Hub",
+      "subject": "huggingface/transformers-pytorch-gpu",
+      "metrics": {
+        "total_pulls": 447612
+      },
+      "last_updated": "2025-10-25"
+    },
+    {
+      "source": "GitHub",
+      "subject": "ollama/ollama",
+      "metrics": {
+        "stars": 168942,
+        "forks": 15579,
+        "open_issues": 2929,
+        "issue_to_star_ratio_pct": 1.73
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "huggingface/transformers",
+      "metrics": {
+        "stars": 159354,
+        "forks": 32869,
+        "open_issues": 2354,
+        "issue_to_star_ratio_pct": 1.48
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "langchain-ai/langchain",
+      "metrics": {
+        "stars": 133525,
+        "forks": 22055,
+        "open_issues": 527,
+        "issue_to_star_ratio_pct": 0.39
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "anthropics/claude-code",
+      "metrics": {
+        "stars": 113820,
+        "forks": 19019,
+        "open_issues": 9648,
+        "issue_to_star_ratio_pct": 8.48
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "vllm-project/vllm",
+      "metrics": {
+        "stars": 76541,
+        "forks": 15566,
+        "open_issues": 4227,
+        "issue_to_star_ratio_pct": 5.52
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "microsoft/autogen",
+      "metrics": {
+        "stars": 57072,
+        "forks": 8592,
+        "open_issues": 768,
+        "issue_to_star_ratio_pct": 1.35
+      },
+      "last_push": "2026-04-06"
+    },
+    {
+      "source": "GitHub",
+      "subject": "crewAIInc/crewAI",
+      "metrics": {
+        "stars": 48855,
+        "forks": 6668,
+        "open_issues": 513,
+        "issue_to_star_ratio_pct": 1.05
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "openai/openai-python",
+      "metrics": {
+        "stars": 30491,
+        "forks": 4704,
+        "open_issues": 384,
+        "issue_to_star_ratio_pct": 1.26
+      },
+      "last_push": "2026-04-14"
+    },
+    {
+      "source": "GitHub",
+      "subject": "NVIDIA/TensorRT",
+      "metrics": {
+        "stars": 12895,
+        "forks": 2344,
+        "open_issues": 579,
+        "issue_to_star_ratio_pct": 4.49
+      },
+      "last_push": "2026-04-13"
+    },
+    {
+      "source": "GitHub",
+      "subject": "anthropics/anthropic-sdk-python",
+      "metrics": {
+        "stars": 3237,
+        "forks": 609,
+        "open_issues": 213,
+        "issue_to_star_ratio_pct": 6.58
+      },
+      "last_push": "2026-04-13"
+    },
+    {
+      "source": "GitHub Releases",
+      "subject": "anthropics/claude-code",
+      "metrics": {
+        "releases_in_feed": 10
+      }
+    },
+    {
+      "source": "GitHub Releases",
+      "subject": "anthropics/anthropic-sdk-python",
+      "metrics": {
+        "releases_in_feed": 10
+      }
+    },
+    {
+      "source": "GitHub Releases",
+      "subject": "openai/openai-python",
+      "metrics": {
+        "releases_in_feed": 10
+      }
+    },
+    {
+      "source": "GitHub Releases",
+      "subject": "huggingface/transformers",
+      "metrics": {
+        "releases_in_feed": 10
+      }
+    },
+    {
+      "source": "GitHub Releases",
+      "subject": "NVIDIA/TensorRT",
+      "metrics": {
+        "releases_in_feed": 10
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "openai/o1-pro",
+      "metrics": {
+        "input_cost_per_mtok": 150.0,
+        "output_cost_per_mtok": 600.0,
+        "context_length": 200000
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "anthropic/claude-opus-4.6-fast",
+      "metrics": {
+        "input_cost_per_mtok": 30.0,
+        "output_cost_per_mtok": 150.0,
+        "context_length": 1000000
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "x-ai/grok-4",
+      "metrics": {
+        "input_cost_per_mtok": 3.0,
+        "output_cost_per_mtok": 15.0,
+        "context_length": 256000
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "amazon/nova-premier-v1",
+      "metrics": {
+        "input_cost_per_mtok": 2.5,
+        "output_cost_per_mtok": 12.5,
+        "context_length": 1000000
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "google/gemini-3.1-pro-preview-customtools",
+      "metrics": {
+        "input_cost_per_mtok": 2.0,
+        "output_cost_per_mtok": 12.0,
+        "context_length": 1048576
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "mistralai/mistral-large-2411",
+      "metrics": {
+        "input_cost_per_mtok": 2.0,
+        "output_cost_per_mtok": 6.0,
+        "context_length": 131072
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "metrics": {
+        "input_cost_per_mtok": 1.2,
+        "output_cost_per_mtok": 1.2,
+        "context_length": 131072
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "qwen/qwen-max",
+      "metrics": {
+        "input_cost_per_mtok": 1.04,
+        "output_cost_per_mtok": 4.16,
+        "context_length": 32768
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "deepseek/deepseek-r1-distill-llama-70b",
+      "metrics": {
+        "input_cost_per_mtok": 0.7,
+        "output_cost_per_mtok": 0.8,
+        "context_length": 131072
+      }
+    },
+    {
+      "source": "OpenRouter",
+      "subject": "meta-llama/llama-3-70b-instruct",
+      "metrics": {
+        "input_cost_per_mtok": 0.51,
+        "output_cost_per_mtok": 0.74,
+        "context_length": 8192
+      }
+    },
+    {
+      "source": "OpenRouter (aggregate)",
+      "subject": "market_summary",
+      "metrics": {
+        "total_models": 231,
+        "free_models": 19,
+        "models_with_1m_plus_context": 39,
+        "median_input_cost_per_mtok": 0.33,
+        "min_paid_input_cost_per_mtok": 0.02,
+        "max_input_cost_per_mtok": 150.0
+      }
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "NVIDIA (NVDA)",
+      "metrics": {
+        "recent_filings_count": 4
+      },
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2026-03-06",
+          "description": "8-K",
+          "accession": "0001045810-26-000024"
+        },
+        {
+          "form": "10-K",
+          "date": "2026-02-25",
+          "description": "10-K",
+          "accession": "0001045810-26-000021"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-02-25",
+          "description": "8-K",
+          "accession": "0001045810-26-000019"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-01-23",
+          "description": "8-K",
+          "accession": "0001045810-26-000003"
+        }
+      ]
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "AMD (AMD)",
+      "metrics": {
+        "recent_filings_count": 5
+      },
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2026-02-24",
+          "description": "8-K",
+          "accession": "0000002488-26-000045"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-02-17",
+          "description": "8-K",
+          "accession": "0000002488-26-000029"
+        },
+        {
+          "form": "10-K/A",
+          "date": "2026-02-04",
+          "description": "10-K/A",
+          "accession": "0000002488-26-000021"
+        },
+        {
+          "form": "10-K",
+          "date": "2026-02-04",
+          "description": "10-K",
+          "accession": "0000002488-26-000018"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-02-03",
+          "description": "8-K",
+          "accession": "0000002488-26-000014"
+        }
+      ]
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "Microsoft (MSFT)",
+      "metrics": {
+        "recent_filings_count": 2
+      },
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "2026-01-28",
+          "description": "10-Q",
+          "accession": "0001193125-26-027207"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-01-28",
+          "description": "8-K",
+          "accession": "0001193125-26-027198"
+        }
+      ]
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "Alphabet (GOOGL)",
+      "metrics": {
+        "recent_filings_count": 3
+      },
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2026-04-10",
+          "description": "8-K",
+          "accession": "0001652044-26-000034"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-04-02",
+          "description": "8-K",
+          "accession": "0001652044-26-000031"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-03-06",
+          "description": "8-K",
+          "accession": "0001652044-26-000026"
+        }
+      ]
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "Meta (META)",
+      "metrics": {
+        "recent_filings_count": 0
+      },
+      "filings": []
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "Amazon (AMZN)",
+      "metrics": {
+        "recent_filings_count": 5
+      },
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "2026-04-14",
+          "description": "FORM 8-K",
+          "accession": "0001104659-26-042880"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-04-09",
+          "description": "FORM 8-K",
+          "accession": "0001104659-26-041034"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-03-16",
+          "description": "FORM 8-K",
+          "accession": "0001104659-26-028556"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-03-13",
+          "description": "FORM 8-K",
+          "accession": "0001104659-26-027729"
+        },
+        {
+          "form": "8-K",
+          "date": "2026-02-27",
+          "description": "FORM 8-K",
+          "accession": "0001104659-26-021050"
+        }
+      ]
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "CoreWeave (CRWV)",
+      "metrics": {
+        "recent_filings_count": 0
+      },
+      "filings": []
+    },
+    {
+      "source": "SEC EDGAR",
+      "subject": "TSMC (TSM)",
+      "metrics": {
+        "recent_filings_count": 0
+      },
+      "filings": []
+    },
+    {
+      "source": "arXiv cs.AI",
+      "subject": "daily_volume",
+      "metrics": {
+        "papers_today": 731
+      }
+    },
+    {
+      "source": "HuggingFace (aggregate)",
+      "subject": "trending_summary",
+      "metrics": {
+        "top_model": "zai-org/GLM-5.1",
+        "top_model_likes": 1176,
+        "top_model_downloads": 84784,
+        "total_trending_models": 20
+      }
+    }
+  ],
+  "probabilistic_patterns": "```json\n[\n  {\n    \"pattern\": \"API client libraries (OpenAI, Anthropic) show sustained momentum while foundational models (transformers) decline\",\n    \"supporting_facts\": [\n      \"openai PyPI: 235.9M monthly, +10.0% trend\",\n      \"anthropic PyPI: 89.9M monthly, +15.3% trend\",\n      \"transformers PyPI: 126.0M monthly, -1.6% trend\",\n      \"openai npm: 70.0M monthly, +10.0% trend\",\n      \"@anthropic-ai/sdk npm: 48.4M monthly, +23.2% trend\"\n    ],\n    \"confidence\": \"HIGH\",\n    \"would_disprove\": \"If transformers usage reversed to positive trend or if API client growth declined below monthly average baseline\",\n    \"category\": \"adoption\"\n  },\n  {\n    \"pattern\": \"vLLM exhibits exceptional velocity growth despite small absolute download base, suggesting rapid acceleration in local inference infrastructure adoption\",\n    \"supporting_facts\": [\n      \"vllm PyPI: 9.9M monthly downloads, +37.6% trend vs monthly avg\",\n      \"vllm Docker: 17.8M total pulls, recently updated 2026-04-14\",\n      \"vllm GitHub: 76.5K stars, 4.2K open issues\",\n      \"For comparison: llama-index PyPI 9.9M monthly, +0.6% trend\"\n    ],\n    \"confidence\": \"HIGH\",\n    \"would_disprove\": \"If vLLM trend normalizes to single-digit growth or if Docker pulls plateau while competing inference engines accelerate\",\n    \"category\": \"velocity\"\n  },\n  {\n    \"pattern\": \"Anthropic SDK shows stronger momentum than OpenAI SDK across both package managers despite lower absolute adoption\",\n    \"supporting_facts\": [\n      \"anthropic PyPI trend: +15.3% vs openai +10.0%\",\n      \"@anthropic-ai/sdk npm trend: +23.2% vs openai npm +10.0%\",\n      \"anthropic PyPI: 89.9M monthly vs openai 235.9M\",\n      \"anthropic version 0.94.1 latest (2026-04-13) vs openai 2.31.0 (2026-04-08)\"\n    ],\n    \"confidence\": \"MEDIUM\",\n    \"would_disprove\": \"If Anthropic SDK trend reverts below 10% or if OpenAI trends accelerate above Anthropic in subsequent periods\",\n    \"category\": \"adoption\"\n  },\n  {\n    \"pattern\": \"LangChain ecosystem dominance may be softening; core component (langchain-core) shows healthier velocity than parent package\",\n    \"supporting_facts\": [\n      \"langchain PyPI: 227.5M monthly, +4.6% trend\",\n      \"langchain-core PyPI: 103.0M monthly, +6.4% trend\",\n      \"langchain GitHub issues: 527 total (0.39% ratio), suggesting low operational friction\",\n      \"@langchain/core npm: 15.1M monthly, +5.2% trend vs langchain npm 9.3M, +1.2% trend\"\n    ],\n    \"confidence\": \"MEDIUM\",\n    \"would_disprove\": \"If langchain-core trend declines below parent package or if langchain adoption reverses to growth trajectory\",\n    \"category\": \"cross-cutting\"\n  },\n  {\n    \"pattern\": \"Anthropic repositories show elevated operational complexity relative to star count; claude-code has 8.48% issue-to-star ratio vs 0.39% for langchain\",\n    \"supporting_facts\": [\n      \"anthropics/claude-code: 113.8K stars, 9,648 open issues (8.48% ratio)\",\n      \"anthropics/anthropic-sdk-python: 3.2K stars, 213 open issues (6.58% ratio)\",\n      \"langchain-ai/langchain: 133.5K stars, 527 open issues (0.39% ratio)\",\n      \"vllm-project/vllm: 76.5K stars, 4.2K open issues (5.52% ratio)\"\n    ],\n    \"confidence\": \"HIGH\",\n    \"would_disprove\": \"If Anthropic issue counts decline proportionally faster than new stars, or if this reflects intentional triage strategy rather than operational strain\",\n    \"category\": \"cross-cutting\"\n  },\n  {\n    \"pattern\": \"Model pricing market exhibits extreme stratification: premium reasoning models (o1-pro at 150/600 $/MTok) command 7500x markup over commodity inference (deepseek at 0.7/0.8)\",\n    \"supporting_facts\": [\n      \"openai/o1-pro: 150 input, 600 output $/MTok\",\n      \"deepseek/deepseek-r1-distill-llama-70b: 0.7 input, 0.8 output $/MTok\",\n      \"Claude Opus: 30/150 $/MTok vs Mistral Large: 2/6 $/MTok\",\n      \"Market median input cost: 0.33 $/MTok; min paid: 0.02 $/MTok; max: 150 $/MTok\"\n    ],\n    \"confidence\": \"HIGH\",\n    \"would_disprove\": \"If premium model pricing compresses toward median or if commodity models demonstrate superior performance metrics offsetting price difference\",\n    \"category\": \"capital\"\n  },\n  {\n    \"pattern\": \"Ollama demonstrates exceptional Docker adoption (121.6M pulls) relative to GitHub stars (169K), suggesting dominant local-first inference preference\",\n    \"supporting_facts\": [\n      \"ollama/ollama Docker: 121.6M total pulls, updated 2026-04-14\",\n      \"ollama/ollama GitHub: 168.9K stars, 1.73% issue-to-star ratio\",\n      \"For comparison: huggingface/transformers 17.3M Docker pulls but 159.3K stars\",\n      \"pytorch/pytorch 17.3M Docker pulls, indicating ollama 7x adoption ratio vs comparison\"\n    ],\n    \"confidence\": \"HIGH\",\n    \"would_disprove\": \"If Docker pull-to-star ratio is not anomalously high relative to industry peers, or if ollama usage consolidates toward paid cloud APIs\",\n    \"category\": \"adoption\"\n  },\n  {\n    \"pattern\": \"Agentic frameworks show fragmented, early-stage adoption patterns; CrewAI and AutoGen lag significantly behind orchestration libraries despite high conceptual interest\",\n    \"supporting_facts\": [\n      \"crewai PyPI: 6.1M monthly, 48.8K GitHub stars, +7.4% trend\",\n      \"autogen PyPI: 160K monthly, 57.0K GitHub stars, -3.2% trend\",\n      \"langchain PyPI: 227.5M monthly, 133.5K GitHub stars, +4.6% trend\",\n      \"crewai last push 2026-04-14; autogen last push 2026-04-06 (8 days prior)\"\n    ],\n    \"confidence\": \"MEDIUM\",\n    \"would_disprove\": \"If agentic framework downloads accelerate above 50M monthly within 2 quarters, or if GitHub star velocity for these projects exceeds LangChain\",\n    \"category\": \"adoption\"\n  },\n  {\n    \"pattern\": \"Amazon (AMZN) shows elevated SEC filing frequency (5 recent 8-K filings vs Meta 0, CoreWeave 0) suggesting material corporate developments or disclosure obligations related to AI infrastructure\",\n    \"supporting_facts\": [\n      \"Amazon: 5 recent filings (latest 2026-04-14, 2026-04-09)\",\n      \"Meta: 0 recent filings\",\n      \"CoreWeave: 0 recent filings\",\n      \"NVIDIA: 4 recent filings; AMD: 5 recent filings (comparable to Amazon)\"\n    ],\n    \"confidence\": \"LOW\",\n    \"would_disprove\": \"If Amazon's filing pattern reverts to historical baseline or if Meta/CoreWeave initiate comparable filing frequency suggesting competitive responses\",\n    \"category\": \"capital\"\n  }\n]\n```\n\n---\n\n## ANALYTICAL SUMMARY\n\n**Strongest Signals:**\n- **API client momentum diverging from foundational models** (Fact 1, 2, 3): The ecosystem is consolidating around specific provider APIs rather than generic model interfaces. OpenAI and Anthropic SDKs sustain double-digit growth while transformers declines.\n- **vLLM's explosive velocity** (Fact 6, 19, 25): +37.6% trend is a severe outlier suggesting genuine infrastructure shift toward local inference optimization.\n- **Anthropic SDK outpacing OpenAI on velocity** (despite lower volume) signals potential market share compression or API capability differentiation.\n\n**Medium-Confidence Patterns:**\n- LangChain's ecosystem may exhibit internal dynamics (core growing faster than parent) worth monitoring for architectural shifts.\n- Agentic frameworks remain niche despite media attention -- adoption lags orchestration libraries by 20-50x.\n\n**Data Limitations:**\n- No temporal depth for trend validation (single snapshot; trends are relative to rolling averages).\n- SEC filings document regulatory events but not strategic announcements (no direct causality to AI initiatives).\n- GitHub issue-to-star ratios correlate with project maturity/scope, not necessarily distress.",
+  "bias_check": "# Cognitive Bias Analysis\n\n---\n\n## Pattern 1: API Client Libraries Momentum vs Foundational Models Decline\n\n```json\n{\n  \"pattern_index\": 0,\n  \"biases_detected\": [\n    \"BASE_RATE_NEGLECT: 'Decline' is relative to a rolling monthly average, not absolute numbers. Transformers 126M monthly is still massive. Without knowing historical baselines (is -1.6% typical variation or unusual?), the claim of 'decline' is context-free.\",\n    \"RECENCY_BIAS: Single-week snapshot showing +10.0% and +15.3% trends. No data on whether these trends sustained for months or represent normal weekly volatility. Trend percentages without confidence intervals are anchored to this specific week.\",\n    \"NARRATIVE_FALLACY: The interpretation weaves 'API clients gaining while foundational models lose' into a coherent story. But the story depends on framing transformers as 'foundational' vs langchain as 'orchestration.' If transformers grew 5% last month and langchain shrunk next month, the narrative collapses. The selection of which packages to compare is story-dependent.\"\n  ],\n  \"severity\": \"MEDIUM\",\n  \"recommendation\": \"The pattern is plausible but requires multi-month trend data to validate. Ask: (1) Is -1.6% for transformers unusual or within normal variance? (2) Have openai/anthropic sustained >10% growth for 6+ months or is this a spike? (3) Why compare transformers (hardware abstraction) to langchain (orchestration)--are these competing categories or complementary? The narrative assumes category competition without justifying it.\"\n}\n```\n\n---\n\n## Pattern 2: vLLM Exceptional Velocity Growth\n\n```json\n{\n  \"pattern_index\": 1,\n  \"biases_detected\": [\n    \"ANCHORING: The entire claim rests on the +37.6% trend figure. If that number were 25% or 40%, would vLLM still be 'exceptional'? The interpretation doesn't establish what would constitute normal velocity growth for infrastructure packages. Without a baseline of peer velocity (llama-index at +0.6%, transformers at -1.6%), the 37.6% appears exceptional. But exceptional relative to what distribution?\",\n    \"BASE_RATE_NEGLECT: vLLM is 9.9M monthly downloads. This is presented as 'small absolute base' accelerating. But (a) is 9.9M small for an inference optimization library? (b) are the 37.6% gains from a low baseline inherently less meaningful than 10% gains on 235M? (c) Docker pulls (17.8M) are treated as validation, but total_pulls is a lifetime metric, not velocity.\",\n    \"SURVIVORSHIP_BIAS: Analysis only looks at projects that exist and are tracked. What about inference frameworks that launched recently and already declined? What about pre-release projects in academic repos? The analysis shows only survivors in PyPI/Docker/GitHub--missing the population of projects that failed or never achieved distribution.\"\n  ],\n  \"severity\": \"MEDIUM\",\n  \"recommendation\": \"The signal is worth monitoring, but establish: (1) What is the normal velocity range for infrastructure packages? Is 37.6% unusual or typical early-lifecycle growth? (2) Separate momentum (trend) from absolute adoption (9.9M). A 37.6% trend on a small base may indicate early adoption rather than market dominance. (3) Validate Docker metric: 17.8M pulls could represent institutional deployments or could be artifacts of container image layering. Compare pull-per-star ratio to pytorch/pytorch (17.3M pulls, 70K stars = 0.25M pulls/K stars vs vllm 17.8M pulls, 76.5K stars = 0.23M pulls/K stars). If equal, Docker adoption is not anomalous.\"\n}\n```\n\n---\n\n## Pattern 3: Anthropic SDK Stronger Momentum Than OpenAI\n\n```json\n{\n  \"pattern_index\": 2,\n  \"biases_detected\": [\n    \"CONFIRMATION_BIAS: The interpretation cites Anthropic's +15.3% PyPI and +23.2% npm trends as evidence of 'stronger momentum.' It does not mention that OpenAI's +10.0% trend, while lower, still represents sustained growth. If the claim is 'Anthropic accelerating faster,' that's valid. But the framing 'stronger momentum despite lower adoption' invites a narrative where Anthropic is 'catching up'--which requires predicting future trajectories, not just comparing current rates.\",\n    \"RECENCY_BIAS: Single week snapshot. Anthropic at +23.2% npm could be noise (one-week anomaly) if its baseline volatility is high. OpenAI at +10.0% could be a plateau. Without multi-week trend lines, the comparison is like comparing stock prices on two random days.\",\n    \"BASE_RATE_NEGLECT: The 'despite lower adoption' qualifier acknowledges volume difference but doesn't quantify the significance. Anthropic is at ~38% of OpenAI's PyPI volume (89.9M vs 235.9M). For Anthropic to achieve parity at current growth rates would require ~60 months of sustained differential growth. Is that realistic? The interpretation doesn't ground the growth trajectory to actual market convergence timelines.\"\n  ],\n  \"severity\": \"LOW\",\n  \"recommendation\": \"The pattern is modest and the interpretation acknowledges medium confidence appropriately. To strengthen: (1) Show 4-8 week trend lines for both packages to confirm Anthropic growth is sustained, not spike. (2) Model how long current differentials would take to converge market share (if that's the implied thesis). (3) Investigate causality: Is Anthropic SDK velocity driven by new feature releases (check release dates--both are 2026-04-08/13), price changes, or API improvements? Or is it just normal SDK maturation cycles?\"\n}\n```\n\n---\n\n## Pattern 4: LangChain Ecosystem Softening\n\n```json\n{\n  \"pattern_index\": 3,\n  \"biases_detected\": [\n    \"NARRATIVE_FALLACY: The claim is that langchain-core's +6.4% growth vs langchain's +4.6% suggests 'core component healthier than parent.' But this narrative requires assuming core and parent are in competition or hierarchy. In reality, both could be growing in absolute terms while relative shifts occur. The story 'ecosystem dominance softening' depends on predicting that core eventually cannibalizes parent adoption--a speculative endpoint. If both plateaued at current levels, the narrative would be wrong.\",\n    \"CONFIRMATION_BIAS: The interpretation selects npm data for @langchain/core (+5.2% vs langchain +1.2%) to reinforce the pattern. But it doesn't mention that langchain npm (9.3M) is still 61% of @langchain/core (15.1M). If the parent is losing adoption to core, why is it still >50% of volume? The data is consistent with normal package consolidation around more modular interfaces, not ecosystem 'softening.'\",\n    \"BASE_RATE_NEGLECT: No context on what langchain-core growth rate was historically. Is +6.4% vs +4.6% a statistically significant difference or noise? Without knowing prior trend volatility, the claim rests on a single 2-3% differential that could reverse next week.\",\n    \"SURVIVORSHIP_BIAS: The analysis assumes langchain-core adoption reflects user preference. But if it's driven by dependency resolution (other packages depend on core), that's architectural lock-in, not preference. The data doesn't distinguish between active adoption and dependency-driven inclusion.\"\n  ],\n  \"severity\": \"MEDIUM\",\n  \"recommendation\": \"Reframe: (1) Establish whether langchain-core growth is user-driven adoption or dependency artifact. Check reverse-dependency counts. (2) Extend temporal window to 6+ months to confirm the trend reversal is real. (3) If the thesis is 'core modularization,' validate by checking whether langchain parent package is losing absolute downloads or just growing slower. Currently langchain PyPI is at 227.5M monthly--still growing, just slightly slower than core. That's consistent with normal library evolution, not 'softening.'\"\n}\n```\n\n---\n\n## Pattern 5: Anthropic Repositories Show Elevated Operational Complexity\n\n```json\n{\n  \"pattern_index\": 4,\n  \"biases_detected\": [\n    \"NARRATIVE_FALLACY: The interpretation presents issue-to-star ratios as evidence of 'operational complexity' or strain. But the story depends on a causal link: high issue ratio = distress/complexity. The data is consistent with alternative narratives: (a) claude-code is actively maintained and users feel empowered to report issues, (b) it's a complex product with inherent feature requests, (c) the issue triage process is slower, (d) the open issue count is cumulative and reflects historical debt rather than current state. The narrative collapses if any of these are true.\",\n    \"ANCHORING: The comparison anchors on langchain's exceptional 0.39% ratio. This is an outlier--most mature projects have 1-5% ratios (ollama 1.73%, autogen 1.35%, microsoft/autogen 1.35%). Anthropic's 8.48% and 6.58% are high but not anomalous relative to vllm (5.52%) or TensorRT (4.49%). The interpretation selects langchain as the comparison anchor, making Anthropic look bad. If the anchor were vllm, Anthropic looks normal.\",\n    \"SURVIVORSHIP_BIAS: The interpretation assumes high issue-to-star ratio is bad. But what about projects with low stars but high issue ratios? Those projects likely failed and aren't in the dataset. The analysis only sees survivors and can't distinguish between 'high issues = bad' and 'high issues = actively used'.\",\n    \"CONFIRMATION_BIAS: The interpretation cites anthropic-sdk-python (6.58%) and claude-code (8.48%) as evidence of 'elevated operational complexity.' It doesn't mention that both packages are recently active (last push 2026-04-13, 2026-04-14) and are maintained. If they were abandoned, the high issue ratio would be more concerning. The recency of activity is mentioned in facts but not integrated into the bias narrative.\"\n  ],\n  \"severity\": \"MEDIUM\",\n  \"recommendation\": \"The pattern is not false, but the interpretation conflates correlation with causation. To validate: (1) Separate issue type distribution: feature requests vs bugs. High feature requests ≠ operational strain. (2) Compare issue resolution velocity: If Anthropic closes issues at same rate as langchain despite higher volume, ratio is meaningless. (3) Contextualize against project scope: claude-code is a code interpreter, inherently complex. langchain is an orchestration library with simpler surface area. Ratio should account for inherent complexity. (4) If the thesis is 'Anthropic products are harder to maintain,' validate by checking whether commits/developer ratios or release cadence show strain. Currently both are actively pushed (2026-04-13/14).\"\n}\n```\n\n---\n\n## Pattern 6: Model Pricing Stratification\n\n```json\n{\n  \"pattern_index\": 5,\n  \"biases_detected\": [\n    \"NARRATIVE_FALLACY: The claim is that pricing exhibits 'extreme stratification' with a '7500x markup.' This is mathematically true (600/0.08 ≈ 7500) but narratively misleading. The story assumes this markup is irrational or unsustainable. But the interpretation doesn't establish whether premium models deliver 7500x better reasoning, accuracy, or latency. If they do, the markup is justified. If not, it's pricing power. The narrative collapses if premium models aren't actually better or if commodity models improve. The 'extreme stratification' framing is predicated on assuming the market will commoditize, which is not proven.\",\n    \"BASE_RATE_NEGLECT: The interpretation presents o1-pro at 150/600 as 'premium reasoning.' But without context on (a) when o1-pro was released, (b) whether pricing is declining over time, (c) historical AI model pricing trends, the 150/600 figure is presented as anomalous without baseline. Is this typical for cutting-edge model pricing or unusually high? The market median of 0.33 is presented but doesn't answer whether 150 is an outlier or standard markup for SOTA models.\",\n    \"ANCHORING: The entire narrative rests on the deepseek/deepseek-r1-distill-llama-70b pricing as the 'commodity' anchor at 0.7/0.8. But 'deepseek-r1-distill' is a distilled (smaller, faster) version. A more fair comparison would be o1-pro vs claude-opus-4.6-fast (30/150), which is only 5-20x markup, not 7500x. The interpretation cherry-picked the extreme endpoints.\",\n    \"CONFIRMATION_BIAS: The interpretation cites pricing data but doesn't mention that many models (19 free models) exist at 0 cost. It also doesn't mention that median input cost is 0.33, suggesting most models cluster at low prices and only a few command premiums. This is consistent with a competitive market with power-law distribution, not 'extreme stratification' (which would imply bimodal distribution).\"\n  ],\n  \"severity\": \"LOW\",\n  \"recommendation\": \"The pattern is real (pricing does span 7500x) but the narrative 'extreme stratification' is oversold. To validate: (1) Compare pricing trends over time--is o1-pro pricing stable or declining? (2) Benchmark premium model pricing against historical SOTA pricing curves (did GPT-4 command similar markups when released?). (3) Correlate pricing with performance metrics--if o1-pro delivers 7500x reasoning improvement, the markup is justified. (4) Acknowledge that 19 free models exist, suggesting market is not stratified but rather has a long tail of commodity models and a small head of premium models. That's typical for competitive tech markets.\"\n}\n```\n\n---\n\n## Pattern 7: Ollama Docker Adoption Dominance\n\n```json\n{\n  \"pattern_index\": 6,\n  \"biases_detected\": [\n    \"BASE_RATE_NEGLECT: The claim is that ollama's 121.6M Docker pulls is 'exceptional relative to GitHub stars.' But (a) no historical context on how Docker pulls accumulate over time, (b) no context on whether 121.6M is high or low for any image. pytorch/pytorch has 17.3M pulls and more stars (159K vs 169K), suggesting ollama's pull volume may not be anomalous. The interpretation states 'ollama 7x adoption ratio vs comparison' but the numbers show ollama pulls (121.6M) vs pytorch pulls (17.3M) = 7x. That's correct but misleading: pytorch has almost identical stars (159K vs 169K). The 7x ratio is in Docker pulls, not adoption per se.\",\n    \"ANCHORING: The interpretation anchors the narrative on the 121.6M pull count. If the number were 100M or 140M, would the conclusion change? The 121.6M is presented as evidence of 'dominant local-first inference preference.' But local-first preference is an inference about user behavior, not a direct observation. The data shows high Docker pull volume, which could reflect (a) containers pulled multiple times per user, (b) CI/CD pipelines auto-pulling latest, (c) historical accumulation, (d) institutional adoption. The interpretation selects 'local-first user preference' without ruling out alternatives.\",\n    \"SURVIVORSHIP_BIAS: The analysis compares ollama to projects that succeeded and are tracked. What about local inference tools that launched and failed? Those don't appear in the dataset. The data shows ollama succeeded, but not whether its pull volume is due to superior design or due to being first-to-market and benefiting from survivorship.\",\n    \"RECENCY_BIAS: Last updated 2026-04-14 is used as evidence of 'dominant' status. But last update date conflates maintenance cadence with adoption. If ollama is feature-complete and stable, infrequent updates = maturity, not declining adoption. The interpretation uses recency (just updated) as a positive signal without establishing what the baseline update frequency is for mature projects.\"\n  ],\n  \"severity\": \"MEDIUM\",\n  \"recommendation\": \"The pattern is plausible but oversold. Ollama likely has strong adoption for local inference, but validate: (1) Compare pull-per-month velocity, not total pulls. 121.6M could represent years of accumulation. (2) Check whether ollama pulls are disproportionately from CI/CD (infrastructure) vs development (local usage). If majority is CI/CD, the 'local-first preference' narrative weakens. (3) Compare pull rates to pytorch and huggingface/transformers over same",
+  "token_usage": {
+    "pattern_detection": {
+      "model": "claude-haiku-4-5-20251001",
+      "input": 5999,
+      "output": 2287,
+      "cache_read": 0
+    },
+    "bias_check": {
+      "model": "claude-haiku-4-5-20251001",
+      "input": 8410,
+      "output": 4000,
+      "cache_read": 0
+    },
+    "synthesis": {
+      "model": "claude-sonnet-4-6",
+      "input": 12303,
+      "output": 2410,
+      "cache_read": 0
+    }
+  }
+}
