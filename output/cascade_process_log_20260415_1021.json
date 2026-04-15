@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "pipeline": "AI-Cake Cascade v2 (Summerhill-framed)",
+    "repo": "anthropics/claude-code",
+    "releases_fetched": 5,
+    "timestamp": "20260415_1021",
+    "agents_used": [
+      "cascade-tutor",
+      "cascade-analyst",
+      "cascade-diver"
+    ],
+    "coach": "summerhill-coach",
+    "model": "claude-sonnet-4-6"
+  },
+  "steps": [
+    {
+      "timestamp": "2026-04-15T10:21:29Z",
+      "type": "DETERMINISTIC",
+      "action": "API call: https://api.github.com/repos/anthropics/claude-code/releases?per_page=5",
+      "status": "running"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Fetched 5 releases from anthropics/claude-code",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Wrote raw data",
+      "status": "ok",
+      "output_file": "cascade_raw_20260415_1021.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Computing metrics for 5 releases",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Computed metrics: 5 releases, 281 total reactions",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Wrote deterministic report",
+      "status": "ok",
+      "output_file": "cascade_deterministic_20260415_1021.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Loaded 4 agent prompts from v2_04152026/",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "DETERMINISTIC",
+      "action": "Anthropic API client initialized",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:21:30Z",
+      "type": "AGENT",
+      "action": "cascade-tutor started",
+      "status": "running",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "input_file": "cascade_deterministic_20260415_1021.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:22:33Z",
+      "type": "AGENT",
+      "action": "cascade-tutor completed (62.6s)",
+      "status": "ok",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "output_file": "cascade_tutor_20260415_1021.md",
+      "tokens_in": 4450,
+      "tokens_out": 2835
+    },
+    {
+      "timestamp": "2026-04-15T10:22:33Z",
+      "type": "AGENT",
+      "action": "cascade-analyst started",
+      "status": "running",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "input_file": "cascade_deterministic_20260415_1021.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:23:09Z",
+      "type": "AGENT",
+      "action": "cascade-analyst completed (35.8s)",
+      "status": "ok",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "output_file": "cascade_analyst_20260415_1021.md",
+      "tokens_in": 7314,
+      "tokens_out": 1732
+    },
+    {
+      "timestamp": "2026-04-15T10:23:09Z",
+      "type": "AGENT",
+      "action": "cascade-diver started",
+      "status": "running",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "input_file": "cascade_analyst_20260415_1021.md"
+    },
+    {
+      "timestamp": "2026-04-15T10:24:18Z",
+      "type": "AGENT",
+      "action": "cascade-diver completed (69.9s)",
+      "status": "ok",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "output_file": "cascade_diver_20260415_1021.md",
+      "tokens_in": 6134,
+      "tokens_out": 2960
+    },
+    {
+      "timestamp": "2026-04-15T10:24:18Z",
+      "type": "PROCESS",
+      "action": "Cascade complete: 14 steps logged",
+      "status": "ok"
+    }
+  ],
+  "output_files": {
+    "raw_data": "cascade_raw_20260415_1021.json",
+    "deterministic_report": "cascade_deterministic_20260415_1021.json",
+    "tutor_output": "cascade_tutor_20260415_1021.md",
+    "analyst_output": "cascade_analyst_20260415_1021.md",
+    "diver_output": "cascade_diver_20260415_1021.md",
+    "process_log": "cascade_process_log_20260415_1021.json"
+  }
+}

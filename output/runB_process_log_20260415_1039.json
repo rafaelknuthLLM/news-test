@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "pipeline": "AI-Cake Cascade Run B -- Active Summerhill Coach",
+    "repo": "anthropics/claude-code",
+    "releases_fetched": 5,
+    "timestamp": "20260415_1039",
+    "agents_used": [
+      "cascade-tutor",
+      "summerhill-coach",
+      "cascade-analyst",
+      "summerhill-coach",
+      "cascade-diver",
+      "summerhill-coach"
+    ],
+    "run_mode": "B -- coach is active participant between each cascade step",
+    "comparison_to": "Run A (embedded coach, cascade_process_log_20260415_1021.json)"
+  },
+  "steps": [
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "API call: https://api.github.com/repos/anthropics/claude-code/releases?per_page=5",
+      "status": "running"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "Fetched 5 releases from anthropics/claude-code",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "Wrote raw data",
+      "status": "ok",
+      "output_file": "runB_raw_20260415_1039.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "Computing metrics for 5 releases",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "Computed metrics: 5 releases, 281 total reactions",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "Wrote deterministic report",
+      "status": "ok",
+      "output_file": "runB_deterministic_20260415_1039.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "Loaded 4 agent prompts",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "DETERMINISTIC",
+      "action": "API client initialized",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T10:39:19Z",
+      "type": "AGENT",
+      "action": "cascade-tutor started",
+      "status": "running",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "input_file": "runB_deterministic_20260415_1039.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:40:28Z",
+      "type": "AGENT",
+      "action": "cascade-tutor completed (69.1s)",
+      "status": "ok",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 3655,
+      "tokens_out": 2938
+    },
+    {
+      "timestamp": "2026-04-15T10:40:28Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "input_file": "tutor output"
+    },
+    {
+      "timestamp": "2026-04-15T10:41:00Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (31.8s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 3751,
+      "tokens_out": 1355
+    },
+    {
+      "timestamp": "2026-04-15T10:41:00Z",
+      "type": "AGENT",
+      "action": "cascade-analyst started",
+      "status": "running",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "input_file": "runB_deterministic_20260415_1039.json"
+    },
+    {
+      "timestamp": "2026-04-15T10:41:41Z",
+      "type": "AGENT",
+      "action": "cascade-analyst completed (40.5s)",
+      "status": "ok",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 8017,
+      "tokens_out": 1910
+    },
+    {
+      "timestamp": "2026-04-15T10:41:41Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "input_file": "analyst output"
+    },
+    {
+      "timestamp": "2026-04-15T10:42:12Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (31.3s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 2709,
+      "tokens_out": 1267
+    },
+    {
+      "timestamp": "2026-04-15T10:42:12Z",
+      "type": "AGENT",
+      "action": "cascade-diver started",
+      "status": "running",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "input_file": "analyst output + deterministic data"
+    },
+    {
+      "timestamp": "2026-04-15T10:43:15Z",
+      "type": "AGENT",
+      "action": "cascade-diver completed (63.3s)",
+      "status": "ok",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 6830,
+      "tokens_out": 2730
+    },
+    {
+      "timestamp": "2026-04-15T10:43:15Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "input_file": "all agent outputs"
+    },
+    {
+      "timestamp": "2026-04-15T10:43:50Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (35.2s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 8365,
+      "tokens_out": 1355
+    },
+    {
+      "timestamp": "2026-04-15T10:43:50Z",
+      "type": "PROCESS",
+      "action": "Run B cascade complete: 20 steps logged",
+      "status": "ok"
+    }
+  ],
+  "output_files": {
+    "tutor": "runB_tutor_20260415_1039.md",
+    "coach_on_tutor": "runB_coach_on_tutor_20260415_1039.md",
+    "analyst": "runB_analyst_20260415_1039.md",
+    "coach_on_analyst": "runB_coach_on_analyst_20260415_1039.md",
+    "diver": "runB_diver_20260415_1039.md",
+    "coach_final": "runB_coach_final_20260415_1039.md",
+    "raw_data": "runB_raw_20260415_1039.json",
+    "deterministic_report": "runB_deterministic_20260415_1039.json",
+    "process_log": "runB_process_log_20260415_1039.json"
+  }
+}
