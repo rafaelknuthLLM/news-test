@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "pipeline": "AI-Cake Cascade v2 -- Active Coach, Single Report",
+    "repo": "anthropics/claude-code",
+    "timestamp": "20260415_1703",
+    "agents": [
+      "cascade-tutor",
+      "summerhill-coach",
+      "cascade-analyst",
+      "summerhill-coach",
+      "cascade-diver",
+      "summerhill-coach"
+    ],
+    "total_tokens_in": 35169,
+    "total_tokens_out": 11728
+  },
+  "steps": [
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "DETERMINISTIC",
+      "action": "API call: https://api.github.com/repos/anthropics/claude-code/releases?per_page=5",
+      "status": "running"
+    },
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "DETERMINISTIC",
+      "action": "Fetched 5 releases",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "DETERMINISTIC",
+      "action": "Computing metrics for 5 releases",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "DETERMINISTIC",
+      "action": "Computed: 5 releases, 306 total reactions",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "DETERMINISTIC",
+      "action": "Wrote deterministic report",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "DETERMINISTIC",
+      "action": "Loaded agent prompts",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T17:03:04Z",
+      "type": "AGENT",
+      "action": "cascade-tutor started",
+      "status": "running",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T17:04:32Z",
+      "type": "AGENT",
+      "action": "cascade-tutor completed (88.1s)",
+      "status": "ok",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 3698,
+      "tokens_out": 3592
+    },
+    {
+      "timestamp": "2026-04-15T17:04:32Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T17:05:12Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (39.5s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 4460,
+      "tokens_out": 1629
+    },
+    {
+      "timestamp": "2026-04-15T17:05:12Z",
+      "type": "AGENT",
+      "action": "cascade-analyst started",
+      "status": "running",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T17:05:52Z",
+      "type": "AGENT",
+      "action": "cascade-analyst completed (40.2s)",
+      "status": "ok",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 8963,
+      "tokens_out": 1881
+    },
+    {
+      "timestamp": "2026-04-15T17:05:52Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T17:06:19Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (27.4s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 2727,
+      "tokens_out": 1133
+    },
+    {
+      "timestamp": "2026-04-15T17:06:19Z",
+      "type": "AGENT",
+      "action": "cascade-diver started",
+      "status": "running",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T17:07:10Z",
+      "type": "AGENT",
+      "action": "cascade-diver completed (50.4s)",
+      "status": "ok",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 6697,
+      "tokens_out": 2280
+    },
+    {
+      "timestamp": "2026-04-15T17:07:10Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T17:07:42Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (32.7s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 8624,
+      "tokens_out": 1213
+    },
+    {
+      "timestamp": "2026-04-15T17:07:42Z",
+      "type": "PROCESS",
+      "action": "Cascade complete: 18 steps",
+      "status": "ok"
+    }
+  ]
+}
