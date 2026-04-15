@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "generated_at": "2026-04-15T18:19:41.724054+00:00",
+    "repo": "anthropics/claude-code",
+    "endpoint": "https://api.github.com/repos/anthropics/claude-code/releases",
+    "calculation_methods": {
+      "positive_ratio": "(thumbs_up + hooray + heart + rocket) / total * 100",
+      "negative_ratio": "(thumbs_down + confused) / total * 100"
+    }
+  },
+  "releases": [
+    {
+      "tag": "v2.1.109",
+      "published_at": "2026-04-15T04:02:13Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.109",
+      "is_prerelease": false,
+      "changelog": {
+        "full_text": "## What's changed\n\n- Improved the extended-thinking indicator with a rotating progress hint\n",
+        "total_lines": 2,
+        "bullet_items": 1
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 29,
+          "thumbs_down": 0,
+          "laugh": 13,
+          "hooray": 1,
+          "confused": 0,
+          "heart": 4,
+          "rocket": 9,
+          "eyes": 2
+        },
+        "total": 58,
+        "positive": 43,
+        "negative": 0,
+        "neutral": 15,
+        "positive_ratio": 74.1,
+        "negative_ratio": 0.0
+      }
+    },
+    {
+      "tag": "v2.1.108",
+      "published_at": "2026-04-14T19:12:01Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.108",
+      "is_prerelease": false,
+      "changelog": {
+        "full_text": "## What's changed\n\n- Added `ENABLE_PROMPT_CACHING_1H` env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (`ENABLE_PROMPT_CACHING_1H_BEDROCK` is deprecated but still honored), and `FORCE_PROMPT_CACHING_5M` to force 5-minute TTL\n- Added recap feature to provide context when returning to a session, configurable in /config and manually invocable with /recap; force with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` if telemetry disabled.\n- The model can now discover and invoke built-in slash commands like `/init`, `/review`, and `/security-review` via the Skill tool\n- `/undo` is now an alias for `/rewind`\n- Improved `/model` to warn before switching models mid-conversation, since the next response re-reads the full history uncached\n- Improved `/resume` picker to default to sessions from the current directory; press `Ctrl+A` to show all projects\n- Improved error messages: server rate limits are now distinguished from plan usage limits; 5xx/529 errors show a link to status.claude.com; unknown slash commands suggest the closest match\n- Reduced memory footprint for file reads, edits, and syntax highlighting by loading language grammars on demand\n- Added \"verbose\" indicator when viewing the detailed transcript (`Ctrl+O`)\n- Added a warning at startup when prompt caching is disabled via `DISABLE_PROMPT_CACHING*` environment variables\n- Fixed paste not working in the `/login` code prompt (regression in 2.1.105)\n- Fixed subscribers who set `DISABLE_TELEMETRY` falling back to 5-minute prompt cache TTL instead of 1 hour\n- Fixed Agent tool prompting for permission in auto mode when the safety classifier's transcript exceeded its context window\n- Fixed Bash tool producing no output when `CLAUDE_ENV_FILE` (e.g. `~/.zprofile`) ends with a `#` comment line\n- Fixed `claude --resume <session-id>` losing the session's custom name and color set via `/rename`\n- Fixed session titles showing placeholder example text when the first message is a short greeting\n- Fixed terminal escape codes appearing as garbage text in the prompt input after `--teleport`\n- Fixed `/feedback` retry: pressing Enter to resubmit after a failure now works without first editing the description\n- Fixed `--teleport` and `--resume <id>` precondition errors (e.g. dirty git tree, session not found) exiting silently instead of showing the error message\n- Fixed Remote Control session titles set in the web UI being overwritten by auto-generated titles after the third message\n- Fixed `--resume` truncating sessions when the transcript contained a self-referencing message\n- Fixed transcript write failures (e.g., disk full) being silently dropped instead of being logged\n- Fixed diacritical marks (accents, umlauts, cedillas) being dropped from responses when the `language` setting is configured\n- Fixed policy-managed plugins never auto-updating when running from a different project than where they were first installed\n",
+        "total_lines": 25,
+        "bullet_items": 24
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 26,
+          "thumbs_down": 0,
+          "laugh": 5,
+          "hooray": 9,
+          "confused": 0,
+          "heart": 5,
+          "rocket": 4,
+          "eyes": 4
+        },
+        "total": 53,
+        "positive": 44,
+        "negative": 0,
+        "neutral": 9,
+        "positive_ratio": 83.0,
+        "negative_ratio": 0.0
+      }
+    },
+    {
+      "tag": "v2.1.107",
+      "published_at": "2026-04-14T06:11:20Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.107",
+      "is_prerelease": false,
+      "changelog": {
+        "full_text": "## What's changed\n\n- Show thinking hints sooner during long operations\n",
+        "total_lines": 2,
+        "bullet_items": 1
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 36,
+          "thumbs_down": 0,
+          "laugh": 3,
+          "hooray": 4,
+          "confused": 0,
+          "heart": 4,
+          "rocket": 6,
+          "eyes": 7
+        },
+        "total": 60,
+        "positive": 50,
+        "negative": 0,
+        "neutral": 10,
+        "positive_ratio": 83.3,
+        "negative_ratio": 0.0
+      }
+    },
+    {
+      "tag": "v2.1.105",
+      "published_at": "2026-04-13T21:53:13Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.105",
+      "is_prerelease": false,
+      "changelog": {
+        "full_text": "## What's changed\n\n- Added `path` parameter to the `EnterWorktree` tool to switch into an existing worktree of the current repository\n- Added PreCompact hook support: hooks can now block compaction by exiting with code 2 or returning `{\"decision\":\"block\"}`\n- Added background monitor support for plugins via a top-level `monitors` manifest key that auto-arms at session start or on skill invoke\n- `/proactive` is now an alias for `/loop`\n- Improved stalled API stream handling: streams now abort after 5 minutes of no data and retry non-streaming instead of hanging indefinitely\n- Improved network error messages: connection errors now show a retry message immediately instead of a silent spinner\n- Improved file write display: long single-line writes (e.g. minified JSON) are now truncated in the UI instead of paginating across many screens\n- Improved `/doctor` layout with status icons; press `f` to have Claude fix reported issues\n- Improved `/config` labels and descriptions for clarity\n- Improved skill description handling: raised the listing cap from 250 to 1,536 characters and added a startup warning when descriptions are truncated\n- Improved `WebFetch` to strip `<style>` and `<script>` contents from fetched pages so CSS-heavy pages no longer exhaust the content budget before reaching actual text\n- Improved stale agent worktree cleanup to remove worktrees whose PR was squash-merged instead of keeping them indefinitely\n- Improved MCP large-output truncation prompt to give format-specific recipes (e.g. `jq` for JSON, computed Read chunk sizes for text)\n- Fixed images attached to queued messages (sent while Claude is working) being dropped\n- Fixed screen going blank when the prompt input wraps to a second line in long conversations\n- Fixed leading whitespace getting copied when selecting multi-line assistant responses in fullscreen mode\n- Fixed leading whitespace being trimmed from assistant messages, breaking ASCII art and indented diagrams\n- Fixed garbled bash output when commands print clickable file links (e.g. Python `rich`/`loguru` logging)\n- Fixed alt+enter not inserting a newline in terminals using ESC-prefix alt encoding, and Ctrl+J not inserting a newline (regression in 2.1.100)\n- Fixed duplicate \"Creating worktree\" text in EnterWorktree/ExitWorktree tool display\n- Fixed queued user prompts disappearing from focus mode\n- Fixed one-shot scheduled tasks re-firing repeatedly when the file watcher missed the post-fire cleanup\n- Fixed inbound channel notifications being silently dropped after the first message for Team/Enterprise users\n- Fixed marketplace plugins with `package.json` and lockfile not having dependencies installed automatically after install/update\n- Fixed marketplace auto-update leaving the official marketplace in a broken state when a plugin process holds files open during the update\n- Fixed \"Resume this session with...\" hint not printing on exit after `/resume`, `--worktree`, or `/branch`\n- Fixed feedback survey shortcut keys firing when typed at the end of a longer prompt\n- Fixed stdio MCP server emitting malformed (non-JSON) output hanging the session instead of failing fast with \"Connection closed\"\n- Fixed MCP tools missing on the first turn of headless/remote-trigger sessions when MCP servers connect asynchronously\n- Fixed `/model` picker on AWS Bedrock in non-US regions persisting invalid `us.*` model IDs to `settings.json` when inference profile discovery is still in-flight\n- Fixed 429 rate-limit errors showing a raw JSON dump instead of a clean message for API-key, Bedrock, and Vertex users\n- Fixed crash on resume when session contains malformed text blocks\n- Fixed `/help` dropping the tab bar, Shortcuts heading, and footer at short terminal heights\n- Fixed malformed keybinding entry values in `keybindings.json` being silently loaded instead of rejected with a clear error\n- Fixed `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` in one project's settings permanently disabling usage metrics for all projects on the machine\n- Fixed washed-out 16-color palette when using Ghostty, Kitty, Alacritty, WezTerm, foot, rio, or Contour over SSH/mosh\n- Fixed Bash tool suggesting `acceptEdits` permission mode when exiting plan mode would downgrade from a higher permission level\n",
+        "total_lines": 38,
+        "bullet_items": 37
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 28,
+          "thumbs_down": 0,
+          "laugh": 8,
+          "hooray": 12,
+          "confused": 0,
+          "heart": 8,
+          "rocket": 8,
+          "eyes": 6
+        },
+        "total": 70,
+        "positive": 56,
+        "negative": 0,
+        "neutral": 14,
+        "positive_ratio": 80.0,
+        "negative_ratio": 0.0
+      }
+    },
+    {
+      "tag": "v2.1.104",
+      "published_at": "2026-04-13T01:45:26Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.104",
+      "is_prerelease": false,
+      "changelog": {
+        "full_text": "\n",
+        "total_lines": 0,
+        "bullet_items": 0
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 41,
+          "thumbs_down": 0,
+          "laugh": 9,
+          "hooray": 5,
+          "confused": 0,
+          "heart": 6,
+          "rocket": 6,
+          "eyes": 8
+        },
+        "total": 75,
+        "positive": 58,
+        "negative": 0,
+        "neutral": 17,
+        "positive_ratio": 77.3,
+        "negative_ratio": 0.0
+      }
+    }
+  ]
+}

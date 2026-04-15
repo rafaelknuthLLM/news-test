@@ -20,15 +20,18 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
-load_dotenv(Path(__file__).parent / ".env")
+
+# All paths relative to repo root, not script location
+REPO_ROOT = Path(__file__).parent.parent.parent
+load_dotenv(REPO_ROOT / ".env")
 
 import anthropic
 
 # --- Config ------------------------------------------------------------------
 
 SONNET = "claude-sonnet-4-6"
-OUTPUT_DIR = Path(__file__).parent / "output"
-AGENTS_DIR = Path(__file__).parent / ".claude" / "agents" / "v3_04152026"
+OUTPUT_DIR = REPO_ROOT / "output"
+AGENTS_DIR = REPO_ROOT / ".claude" / "agents" / "v3_04152026"
 REPO = "anthropics/claude-code"
 RELEASES_COUNT = 5
 

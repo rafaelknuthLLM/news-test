@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "pipeline": "AI-Cake Ritual v3",
+    "repo": "anthropics/claude-code",
+    "timestamp": "20260415_1820",
+    "agents": [
+      "cascade-tutor",
+      "bob-questioner",
+      "cascade-analyst",
+      "cascade-diver",
+      "summerhill-coach"
+    ],
+    "total_tokens_in": 79039,
+    "total_tokens_out": 19332
+  },
+  "steps": [
+    {
+      "timestamp": "2026-04-15T18:20:08Z",
+      "type": "DETERMINISTIC",
+      "action": "API call: https://api.github.com/repos/anthropics/claude-code/releases?per_page=5",
+      "status": "running"
+    },
+    {
+      "timestamp": "2026-04-15T18:20:09Z",
+      "type": "DETERMINISTIC",
+      "action": "Fetched 5 releases",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T18:20:09Z",
+      "type": "DETERMINISTIC",
+      "action": "Computing metrics for 5 releases",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T18:20:09Z",
+      "type": "DETERMINISTIC",
+      "action": "Computed: 5 releases, 316 total reactions",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T18:20:09Z",
+      "type": "DETERMINISTIC",
+      "action": "Wrote deterministic report",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T18:20:09Z",
+      "type": "DETERMINISTIC",
+      "action": "Loaded 5 agent prompts",
+      "status": "ok"
+    },
+    {
+      "timestamp": "2026-04-15T18:20:09Z",
+      "type": "AGENT",
+      "action": "cascade-tutor started",
+      "status": "running",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:21:11Z",
+      "type": "AGENT",
+      "action": "cascade-tutor completed (62.0s)",
+      "status": "ok",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 3788,
+      "tokens_out": 2834
+    },
+    {
+      "timestamp": "2026-04-15T18:21:11Z",
+      "type": "AGENT",
+      "action": "bob-questioner started",
+      "status": "running",
+      "agent": "bob-questioner",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:21:23Z",
+      "type": "AGENT",
+      "action": "bob-questioner completed (12.2s)",
+      "status": "ok",
+      "agent": "bob-questioner",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 3289,
+      "tokens_out": 404
+    },
+    {
+      "timestamp": "2026-04-15T18:21:23Z",
+      "type": "AGENT",
+      "action": "cascade-tutor started",
+      "status": "running",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:21:59Z",
+      "type": "AGENT",
+      "action": "cascade-tutor completed (35.8s)",
+      "status": "ok",
+      "agent": "cascade-tutor",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 7024,
+      "tokens_out": 1306
+    },
+    {
+      "timestamp": "2026-04-15T18:21:59Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:22:39Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (39.5s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 5423,
+      "tokens_out": 1559
+    },
+    {
+      "timestamp": "2026-04-15T18:22:39Z",
+      "type": "AGENT",
+      "action": "cascade-analyst started",
+      "status": "running",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:23:20Z",
+      "type": "AGENT",
+      "action": "cascade-analyst completed (41.8s)",
+      "status": "ok",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 8233,
+      "tokens_out": 1867
+    },
+    {
+      "timestamp": "2026-04-15T18:23:20Z",
+      "type": "AGENT",
+      "action": "bob-questioner started",
+      "status": "running",
+      "agent": "bob-questioner",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:23:31Z",
+      "type": "AGENT",
+      "action": "bob-questioner completed (10.8s)",
+      "status": "ok",
+      "agent": "bob-questioner",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 2322,
+      "tokens_out": 367
+    },
+    {
+      "timestamp": "2026-04-15T18:23:31Z",
+      "type": "AGENT",
+      "action": "cascade-analyst started",
+      "status": "running",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:23:57Z",
+      "type": "AGENT",
+      "action": "cascade-analyst completed (25.7s)",
+      "status": "ok",
+      "agent": "cascade-analyst",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 6066,
+      "tokens_out": 981
+    },
+    {
+      "timestamp": "2026-04-15T18:23:57Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:24:30Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (33.4s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 4093,
+      "tokens_out": 1313
+    },
+    {
+      "timestamp": "2026-04-15T18:24:30Z",
+      "type": "AGENT",
+      "action": "cascade-diver started",
+      "status": "running",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:25:29Z",
+      "type": "AGENT",
+      "action": "cascade-diver completed (58.6s)",
+      "status": "ok",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 7005,
+      "tokens_out": 2397
+    },
+    {
+      "timestamp": "2026-04-15T18:25:29Z",
+      "type": "AGENT",
+      "action": "bob-questioner started",
+      "status": "running",
+      "agent": "bob-questioner",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:25:39Z",
+      "type": "AGENT",
+      "action": "bob-questioner completed (10.2s)",
+      "status": "ok",
+      "agent": "bob-questioner",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 2852,
+      "tokens_out": 344
+    },
+    {
+      "timestamp": "2026-04-15T18:25:39Z",
+      "type": "AGENT",
+      "action": "cascade-diver started",
+      "status": "running",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:26:11Z",
+      "type": "AGENT",
+      "action": "cascade-diver completed (32.2s)",
+      "status": "ok",
+      "agent": "cascade-diver",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 6550,
+      "tokens_out": 1223
+    },
+    {
+      "timestamp": "2026-04-15T18:26:11Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:26:56Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (44.6s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 4843,
+      "tokens_out": 1736
+    },
+    {
+      "timestamp": "2026-04-15T18:26:56Z",
+      "type": "AGENT",
+      "action": "summerhill-coach started",
+      "status": "running",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6"
+    },
+    {
+      "timestamp": "2026-04-15T18:28:10Z",
+      "type": "AGENT",
+      "action": "summerhill-coach completed (74.6s)",
+      "status": "ok",
+      "agent": "summerhill-coach",
+      "model": "claude-sonnet-4-6",
+      "tokens_in": 17551,
+      "tokens_out": 3001
+    },
+    {
+      "timestamp": "2026-04-15T18:28:10Z",
+      "type": "PROCESS",
+      "action": "Ritual complete: 32 steps",
+      "status": "ok"
+    }
+  ]
+}
