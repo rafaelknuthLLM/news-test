@@ -1,0 +1,47 @@
+[
+  {
+    "id": 10105037494,
+    "node_id": "LA_kwDON91aY88AAAACWk6itg",
+    "url": "https://api.github.com/repos/anthropics/claude-code/labels/agent",
+    "name": "agent",
+    "color": "ededed",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 10102965200,
+    "node_id": "LA_kwDON91aY88AAAACWi8D0A",
+    "url": "https://api.github.com/repos/anthropics/claude-code/labels/api:anthropic",
+    "name": "api:anthropic",
+    "color": "ededed",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 8206876988,
+    "node_id": "LA_kwDON91aY88AAAAB6SsBPA",
+    "url": "https://api.github.com/repos/anthropics/claude-code/labels/api:bedrock",
+    "name": "api:bedrock",
+    "color": "93A5FF",
+    "default": false,
+    "description": "Issue relates to AWS Bedrock"
+  },
+  {
+    "id": 8213275784,
+    "node_id": "LA_kwDON91aY88AAAAB6YykiA",
+    "url": "https://api.github.com/repos/anthropics/claude-code/labels/api:vertex",
+    "name": "api:vertex",
+    "color": "93A5FF",
+    "default": false,
+    "description": "Issue relates to GCP Vertex"
+  },
+  {
+    "id": 8566487704,
+    "node_id": "LA_kwDON91aY88AAAAB_po6mA",
+    "url": "https://api.github.com/repos/anthropics/claude-code/labels/area:a11y",
+    "name": "area:a11y",
+    "color": "ededed",
+    "default": false,
+    "description": ""
+  }
+]

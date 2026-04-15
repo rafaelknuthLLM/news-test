@@ -1,0 +1,80 @@
+{
+  "source_file": "output/prototype_deterministic_report.json",
+  "source_api": "https://api.github.com/repos/anthropics/claude-code/releases?per_page=2",
+  "calculation_methods": {
+    "positive_ratio": "deterministic: (thumbs_up + hooray + heart + rocket) / total_reactions * 100",
+    "negative_ratio": "deterministic: (thumbs_down + confused) / total_reactions * 100",
+    "total_reactions": "deterministic: sum of all 8 reaction types",
+    "positive_count": "deterministic: thumbs_up + hooray + heart + rocket",
+    "negative_count": "deterministic: thumbs_down + confused",
+    "neutral_count": "deterministic: laugh + eyes",
+    "bullet_items": "deterministic: count of lines starting with - or * in changelog body",
+    "total_lines": "deterministic: count of non-empty lines in changelog body"
+  },
+  "releases": [
+    {
+      "tag": "v2.1.109",
+      "published_at": "2026-04-15T04:02:13Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.109",
+      "is_prerelease": false,
+      "is_draft": false,
+      "changelog": {
+        "full_text": "## What's changed\n\n- Improved the extended-thinking indicator with a rotating progress hint\n",
+        "total_lines": 2,
+        "bullet_items": 1,
+        "keyword_items": 0
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 12,
+          "thumbs_down": 0,
+          "laugh": 7,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 2,
+          "eyes": 0
+        },
+        "total": 21,
+        "positive": 14,
+        "negative": 0,
+        "neutral": 7,
+        "positive_ratio": 66.7,
+        "negative_ratio": 0.0
+      }
+    },
+    {
+      "tag": "v2.1.108",
+      "published_at": "2026-04-14T19:12:01Z",
+      "author": "ashwin-ant",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.108",
+      "is_prerelease": false,
+      "is_draft": false,
+      "changelog": {
+        "full_text": "## What's changed\n\n- Added `ENABLE_PROMPT_CACHING_1H` env var to opt into 1-hour prompt cache TTL on API key, Bedrock, Vertex, and Foundry (`ENABLE_PROMPT_CACHING_1H_BEDROCK` is deprecated but still honored), and `FORCE_PROMPT_CACHING_5M` to force 5-minute TTL\n- Added recap feature to provide context when returning to a session, configurable in /config and manually invocable with /recap; force with `CLAUDE_CODE_ENABLE_AWAY_SUMMARY` if telemetry disabled.\n- The model can now discover and invoke built-in slash commands like `/init`, `/review`, and `/security-review` via the Skill tool\n- `/undo` is now an alias for `/rewind`\n- Improved `/model` to warn before switching models mid-conversation, since the next response re-reads the full history uncached\n- Improved `/resume` picker to default to sessions from the current directory; press `Ctrl+A` to show all projects\n- Improved error messages: server rate limits are now distinguished from plan usage limits; 5xx/529 errors show a link to status.claude.com; unknown slash commands suggest the closest match\n- Reduced memory footprint for file reads, edits, and syntax highlighting by loading language grammars on demand\n- Added \"verbose\" indicator when viewing the detailed transcript (`Ctrl+O`)\n- Added a warning at startup when prompt caching is disabled via `DISABLE_PROMPT_CACHING*` environment variables\n- Fixed paste not working in the `/login` code prompt (regression in 2.1.105)\n- Fixed subscribers who set `DISABLE_TELEMETRY` falling back to 5-minute prompt cache TTL instead of 1 hour\n- Fixed Agent tool prompting for permission in auto mode when the safety classifier's transcript exceeded its context window\n- Fixed Bash tool producing no output when `CLAUDE_ENV_FILE` (e.g. `~/.zprofile`) ends with a `#` comment line\n- Fixed `claude --resume <session-id>` losing the session's custom name and color set via `/rename`\n- Fixed session titles showing placeholder example text when the first message is a short greeting\n- Fixed terminal escape codes appearing as garbage text in the prompt input after `--teleport`\n- Fixed `/feedback` retry: pressing Enter to resubmit after a failure now works without first editing the description\n- Fixed `--teleport` and `--resume <id>` precondition errors (e.g. dirty git tree, session not found) exiting silently instead of showing the error message\n- Fixed Remote Control session titles set in the web UI being overwritten by auto-generated titles after the third message\n- Fixed `--resume` truncating sessions when the transcript contained a self-referencing message\n- Fixed transcript write failures (e.g., disk full) being silently dropped instead of being logged\n- Fixed diacritical marks (accents, umlauts, cedillas) being dropped from responses when the `language` setting is configured\n- Fixed policy-managed plugins never auto-updating when running from a different project than where they were first installed\n",
+        "total_lines": 25,
+        "bullet_items": 24,
+        "keyword_items": 0
+      },
+      "reactions": {
+        "detail": {
+          "thumbs_up": 21,
+          "thumbs_down": 0,
+          "laugh": 5,
+          "hooray": 8,
+          "confused": 0,
+          "heart": 4,
+          "rocket": 4,
+          "eyes": 4
+        },
+        "total": 46,
+        "positive": 37,
+        "negative": 0,
+        "neutral": 9,
+        "positive_ratio": 80.4,
+        "negative_ratio": 0.0
+      }
+    }
+  ]
+}
