@@ -1,0 +1,286 @@
+{
+  "meta": {
+    "generated_at": "2026-04-17T06:06:59.527648+00:00",
+    "sources": {
+      "pypi_packages": 10,
+      "npm_packages": 6,
+      "docker_images": 5,
+      "github_repos": 10,
+      "huggingface_models": 0,
+      "edgar_companies": 8,
+      "openrouter_models": 0
+    }
+  },
+  "pypi": [
+    {
+      "package": "anthropic",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "0.96.0",
+      "latest_date": "2026-04-16"
+    },
+    {
+      "package": "openai",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "2.32.0",
+      "latest_date": "2026-04-15"
+    },
+    {
+      "package": "langchain",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "1.2.15",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "package": "langchain-core",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "1.2.31",
+      "latest_date": "2026-04-16"
+    },
+    {
+      "package": "transformers",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "5.5.4",
+      "latest_date": "2026-04-13"
+    },
+    {
+      "package": "crewai",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "1.14.1",
+      "latest_date": "2026-04-08"
+    },
+    {
+      "package": "autogen",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "0.11.5",
+      "latest_date": "2026-04-05"
+    },
+    {
+      "package": "llama-index",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "0.14.20",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "package": "vllm",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "0.19.0",
+      "latest_date": "2026-04-03"
+    },
+    {
+      "package": "together",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null,
+      "latest_version": "2.8.0",
+      "latest_date": "2026-04-13"
+    }
+  ],
+  "npm": [
+    {
+      "package": "@anthropic-ai/sdk",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null
+    },
+    {
+      "package": "openai",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null
+    },
+    {
+      "package": "langchain",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null
+    },
+    {
+      "package": "@langchain/core",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null
+    },
+    {
+      "package": "ai",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null
+    },
+    {
+      "package": "@huggingface/inference",
+      "error": "HTTP Error 403: Forbidden",
+      "downloads": null
+    }
+  ],
+  "docker": [
+    {
+      "image": "nvidia/cuda",
+      "pull_count": 106692816,
+      "star_count": 1970,
+      "last_updated": "2026-04-14"
+    },
+    {
+      "image": "pytorch/pytorch",
+      "pull_count": 17349650,
+      "star_count": 1612,
+      "last_updated": "2026-03-23"
+    },
+    {
+      "image": "vllm/vllm-openai",
+      "pull_count": 18089683,
+      "star_count": 272,
+      "last_updated": "2026-04-16"
+    },
+    {
+      "image": "huggingface/transformers-pytorch-gpu",
+      "pull_count": 448367,
+      "star_count": 104,
+      "last_updated": "2025-10-25"
+    },
+    {
+      "image": "ollama/ollama",
+      "pull_count": 123812773,
+      "star_count": 1556,
+      "last_updated": "2026-04-17"
+    }
+  ],
+  "github": [
+    {
+      "repo": "anthropics/claude-code",
+      "stars": 114976,
+      "forks": 19188,
+      "open_issues": 10383,
+      "watchers": 716,
+      "pushed_at": "2026-04-16T19:55:41Z",
+      "created_at": "2025-02-22"
+    },
+    {
+      "repo": "anthropics/anthropic-sdk-python",
+      "stars": 3254,
+      "forks": 615,
+      "open_issues": 222,
+      "watchers": 183,
+      "pushed_at": "2026-04-16T19:06:05Z",
+      "created_at": "2023-01-17"
+    },
+    {
+      "repo": "openai/openai-python",
+      "stars": 30525,
+      "forks": 4723,
+      "open_issues": 391,
+      "watchers": 345,
+      "pushed_at": "2026-04-16T19:50:56Z",
+      "created_at": "2020-10-25"
+    },
+    {
+      "repo": "huggingface/transformers",
+      "stars": 159497,
+      "forks": 32895,
+      "open_issues": 2352,
+      "watchers": 1194,
+      "pushed_at": "2026-04-17T06:03:46Z",
+      "created_at": "2018-10-29"
+    },
+    {
+      "repo": "NVIDIA/TensorRT",
+      "stars": 12904,
+      "forks": 2346,
+      "open_issues": 579,
+      "watchers": 158,
+      "pushed_at": "2026-04-13T22:59:10Z",
+      "created_at": "2019-05-02"
+    },
+    {
+      "repo": "langchain-ai/langchain",
+      "stars": 133820,
+      "forks": 22117,
+      "open_issues": 535,
+      "watchers": 854,
+      "pushed_at": "2026-04-16T21:45:20Z",
+      "created_at": "2022-10-17"
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "stars": 49066,
+      "forks": 6704,
+      "open_issues": 526,
+      "watchers": 352,
+      "pushed_at": "2026-04-16T23:57:03Z",
+      "created_at": "2023-10-27"
+    },
+    {
+      "repo": "microsoft/autogen",
+      "stars": 57161,
+      "forks": 8602,
+      "open_issues": 767,
+      "watchers": 516,
+      "pushed_at": "2026-04-15T11:59:09Z",
+      "created_at": "2023-08-18"
+    },
+    {
+      "repo": "ollama/ollama",
+      "stars": 169216,
+      "forks": 15632,
+      "open_issues": 2959,
+      "watchers": 952,
+      "pushed_at": "2026-04-17T03:33:22Z",
+      "created_at": "2023-06-26"
+    },
+    {
+      "repo": "vllm-project/vllm",
+      "stars": 77008,
+      "forks": 15725,
+      "open_issues": 4323,
+      "watchers": 524,
+      "pushed_at": "2026-04-17T05:42:52Z",
+      "created_at": "2023-02-09"
+    }
+  ],
+  "huggingface": [],
+  "edgar": [
+    {
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "AMD",
+      "ticker": "AMD",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "Microsoft",
+      "ticker": "MSFT",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "Alphabet",
+      "ticker": "GOOGL",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "Meta",
+      "ticker": "META",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "CoreWeave",
+      "ticker": "CRWV",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "company": "TSMC",
+      "ticker": "TSM",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "openrouter": []
+}
